@@ -1,58 +1,53 @@
-# WebFOCUS-VSCode README
+# WebFOCUS for VSCode
 
-This is the README for your extension "webfocus". After writing up a brief description, we recommend including the following sections.
+This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .sty, .mas, .acx) with syntax highlighting and code snippets. 
+
+*Please note that the features here are available as of WebFOCUS version 8202M. Some of the functions/features may not yet be available if you are using an older version of WebFOCUS.* 
+
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
-
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+ - Syntax highlighting
+ - Snippets for:
+    - **Functions:** Type '**wff**' (**W**eb**F**ocus**F**unction) and get a list of all of the built in functions available
+    ![Function snippet](images/Functions.gif)
+    - **ON TABLE SET:** Type '**ots**' (**O**n **T**able **S**et) *(currently a limited list)*
+    ![ON TABLE SET snippet](images/OnTableSet.gif)    
+    - **Output Formats:** Type '**fmt**' (**f**or**m**a**t**)
+    ![Format snippet](images/Format.gif)    
+    - **Dialog Manager Commands:** Type '-[First Letter of DM Command]'  
+    - Different **FILE** actions: Type 'file'
+    - **Tracing:** Type 'trace' *(currently only SQL Trace is available)*
+    - **WHENCE:** Type 'whence' for identifying file locations
+    - **Query Commands:** Type '**wf?**' for a list of (**?**) query commands
+    - **Non DM SET:** Type '**set**' *(currently a limited list)*
+    - **Comment Block:** Type '**comment**'
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+In order to sync the changes made in VS Code to WebFOCUS, the following is required:
+* Change the file associations for WebFOCUS files (.fex, .sty, .mas, .acx) on your computer to open with VSCode by default.
+* Have Information Builders AppStudio installed on your PC
+* Goto  AppStudio > Options > General 
+    - Make sure that 'Sync with WebFOCUS' (near the bottom) is checked. 
+    - You can optionally change the default file editor to 'Edit in Windows Associated Tool.' This will allow you to simply double click on a file in AppStudio and it will open the file in VS Code.
 
-## Extension Settings
+ ![App Studio Options](images/AppStudioOptions.png)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## Best Practices
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+* In VS Code goto File and select Auto Save to automatically save changes to WebFOCUS.
+* Open the file that you are editing in a browser through the web interface. Then you can just refresh the web page to see the changes instead of having to go to AppStudio and right-click > run
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Please use the following [github link](https://github.com/steebn/WebFOCUS-VSCode/issues) to report any issues. 
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
+### 0.0.1
 
 Initial release
 
-
------------------------------------------------------------------------------------------------------------
-
-<!-- ## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!** -->
+----------
+ 

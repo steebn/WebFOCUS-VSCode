@@ -11,17 +11,17 @@
     },
 	"DEFINE": {
 		"scope": "focexec",
-		"prefix": "FILE",
+		"prefix": "file",
 		"body": [
 			"DEFINE FILE ${1:FileName}",
-			"\t ${2: }",
+			"$0",
 			"END"
 		],
 		"description": "Code snippet for DEFINE"
 	},
 	"TABLE": {
 		"scope": "focexec",
-		"prefix": "FILE",
+		"prefix": "file",
 		"body": [
 			"TABLE FILE ${1:FileName}",
 			"$0",
@@ -31,7 +31,7 @@
 	},
 	"FILEDEF": {
 		"scope": "focexec",
-		"prefix": "FILE",
+		"prefix": "file",
 		"body": [
 			"FILEDEF ${1:ddname} DISK ${2:Path\\Filename}"
 		],
@@ -39,7 +39,7 @@
 	},
 	"FILEDEF/CLEAR": {
 		"scope": "focexec",
-		"prefix": "FILE",
+		"prefix": "file",
 		"body": [
 			"FILEDEF ${1:ddname} CLEAR",
 			"FILEDEF ${1:ddname} DISK ${2:Path\\FileName}"
@@ -162,7 +162,7 @@
 
 	"-SET &ECHO": {
 		"scope": "focexec",
-		"prefix": "-SET",
+		"prefix": "-S",
 		"body": ["-SET &ECHO=${1|ALL,NONE,OFF,ON|};",
 			"$0"
 		],
@@ -170,7 +170,7 @@
 	},
 	"-SET &STACK": {
 		"scope": "focexec",
-		"prefix": "-SET",
+		"prefix": "-S",
 		"body": ["-SET &STACK=${1|OFF,ON|};",
 			"$0"
 		],
@@ -178,7 +178,7 @@
 	},
 	"-SET &VAR": {
 		"scope": "focexec",
-		"prefix": "-SET",
+		"prefix": "-S",
 		"body": ["-SET &${1:VariableName} = ${2:VariableValue};",
 			"$0"
 		],
@@ -186,20 +186,20 @@
 	},
 	"-SET &&GLOBALVAR": {
 		"scope": "focexec",
-		"prefix": "-SET",
+		"prefix": "-S",
 		"body": ["-SET &&${1:VariableName} = ${2:VariableValue};",
 			"$0"
 		],
-		"description": "For setting a user defined variable."
+		"description": "For setting a user defined Global variable."
 	},
-	"-HTMLFORM": {
+	"-HTMLFORM BEGIN/END": {
 		"scope": "focexec",
 		"prefix": "-HTMLFORM",
 		"body": ["-HTMLFORM BEGIN ${1:NOEVAL}",
 			"$0",
 			"-HTMLFORM END"
 		],
-		"description": "For setting a user defined variable."
+		"description": "For inserting HTML code within a focexec file"
 	},
 	"-INCLUDE": {
 		"scope": "focexec",
@@ -215,7 +215,20 @@
 		"body": ["-EXIT",
 			"$0"
 		],
-		"description": "For including an external file into your report"
+		"description": "Exit the code"
+	},
+	"-MRNOEDIT": {
+		"scope": "focexec",
+		"prefix": "-M",
+		"body": ["-MRNOEDIT ${1:focexec_code}$0"	],
+		"description": "To instruct Managed Reporting to not process code"
+	},
+	"-MRNOEDIT BEGIN/END": {
+		"scope": "focexec",
+		"prefix": "-M",
+		"body": ["-MRNOEDIT BEGIN ${1:focexec_code}$0",
+			"-MRNOEDIT END"	],
+		"description": "To instruct Managed Reporting to not process code"
 	},
 
 
@@ -311,7 +324,7 @@
 	"FOCUS": {
 		"scope": "focexec",
 		"prefix": "fmt",
-		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT FOCUS ${2:INDEX} ",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT FOCUS INDEX ${2:field} ",
 			"$0"
 		],
 		"description": "FOCUS data sources with SUFFIX = FOCUS consist of 4K database pages."
@@ -359,7 +372,7 @@
 	"XFOCUS": {
 		"scope": "focexec",
 		"prefix": "fmt",
-		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT XFOCUS ${2:INDEX} ",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT XFOCUS INDEX ${2:field} ",
 			"$0"
 		],
 		"description": "XFOCUS data sources with SUFFIX = XFOCUS consist of 16K database pages."
@@ -420,7 +433,7 @@
 	"BYDISPLAY": {
 		"scope": "focexec",
 		"prefix": "ots",
-		"body": ["ON TABLE SET BYDISPLAY ${1|OFF,ON,OFF,BY,ACROSS,ALL|}",
+		"body": ["ON TABLE SET BYDISPLAY ${1|OFF,ON,BY,ACROSS,ALL|}",
 			"$0"
 		],
 		"description": "Controls Displaying All Vertical (BY) Sort Field Values."
@@ -1188,25 +1201,25 @@
 	"EDIT(char)": {
 		"scope": "focexec",
 		"prefix": "wff",
-		"body": ["EDIT(char)(${1:char})"],
+		"body": ["EDIT(${1:char})"],
 		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
 	},
 	"EDIT(int)": {
 		"scope": "focexec",
 		"prefix": "wff",
-		"body": ["EDIT(int)(${1:int})"],
+		"body": ["EDIT(${1:int})"],
 		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
 	},
 	"EDIT(pack)": {
 		"scope": "focexec",
 		"prefix": "wff",
-		"body": ["EDIT(pack)(${1:pack})"],
+		"body": ["EDIT(${1:pack})"],
 		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
 	},
 	"EDIT(real)": {
 		"scope": "focexec",
 		"prefix": "wff",
-		"body": ["EDIT(real)(${1:real})"],
+		"body": ["EDIT(${1:real})"],
 		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
 	},
 	"EDIT2": {
