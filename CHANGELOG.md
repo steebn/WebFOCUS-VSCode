@@ -1,7 +1,11 @@
 # Change Log
 All notable changes to the "webfocus" extension will be documented in this file.
 
-### 0.1.0
+### 0.2.1
+
+Bug fixes
+
+### 0.2.0
 
 Published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=steebn.webfocus)
 

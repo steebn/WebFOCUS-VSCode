@@ -58,10 +58,11 @@ Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to
 
 ## Latest Release Notes
 
-### 0.1.0
+### 0.2.1
 
-Published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=steebn.webfocus).
+Bug fixes
+
+----------
 
 Past releases can be found in the [changelog](https://marketplace.visualstudio.com/items/steebn.webfocus/changelog).
-----------
  
