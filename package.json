@@ -2,12 +2,12 @@
     "name": "webfocus",
     "displayName": "WebFOCUS",
     "description": "Provides language support for WebFOCUS.",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "publisher": "steebn",
     "author": {
-		"name": "Steven Hall",
-		"url": "https://github.com/steebn"
-	},
+        "name": "Steven Hall",
+        "url": "https://github.com/steebn"
+    },
     "license": "MIT",
     "icon": "images/icon.png",
     "galleryBanner": {
@@ -15,12 +15,12 @@
         "theme": "dark"
     },
     "homepage": "https://github.com/steebn/WebFOCUS-VSCode",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/steebn/WebFOCUS-VSCode.git"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/steebn/WebFOCUS-VSCode.git"
     },
-    "bugs": { 
-        "url": "https://github.com/steebn/WebFOCUS-VSCode/issues" 
+    "bugs": {
+        "url": "https://github.com/steebn/WebFOCUS-VSCode/issues"
     },
     "engines": {
         "vscode": "^1.27.0"
