@@ -2,7 +2,7 @@
     "name": "webfocus",
     "displayName": "WebFOCUS",
     "description": "Provides language support for WebFOCUS.",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "publisher": "steebn",
     "author": {
         "name": "Steven Hall",
