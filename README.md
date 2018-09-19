@@ -60,8 +60,8 @@ Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to
 
 ### 0.1.0
 
-Published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=steebn.webfocus)
+Published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=steebn.webfocus).
 
-
+Past releases can be found in the [changelog](https://marketplace.visualstudio.com/items/steebn.webfocus/changelog).
 ----------
  
