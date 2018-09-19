@@ -41,7 +41,7 @@ In order to sync the changes made in VS Code to WebFOCUS, the following is requi
 
 ## Known Issues
 
-Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to report any issues or feature requests. 
+Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to report any issues or to make any feature requests. 
 
 ## Release Notes
 
