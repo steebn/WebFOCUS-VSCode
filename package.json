@@ -3,13 +3,14 @@
     "displayName": "WebFOCUS",
     "description": "Provides language support for WebFOCUS.",
     "version": "0.2.2",
+    "preview": true,
     "publisher": "steebn",
     "author": {
         "name": "Steven Hall",
         "url": "https://github.com/steebn"
     },
     "license": "MIT",
-    "icon": "images/icon.png",
+    "icon": "images/WebFOCUS_logo_400x400.png",
     "galleryBanner": {
         "color": "#505050",
         "theme": "dark"
