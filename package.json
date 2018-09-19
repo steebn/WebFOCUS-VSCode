@@ -38,6 +38,13 @@
         "fex",
         "focexec"
     ],
+    "activationEvents": [
+        "*"
+    ],
+    "extensionDependencies": [
+        "vscode.git"
+    ],
+    "main": "./extension",
     "contributes": {
         "languages": [
             {

@@ -56,13 +56,8 @@ In order to sync the changes made in VS Code to WebFOCUS, the following is requi
 
 Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to report any issues or to make any feature requests. 
 
-## Latest Release Notes
+## Release Notes
 
-### 0.2.1
-
-Bug fixes
-
-----------
-
-Past releases can be found in the [changelog](https://marketplace.visualstudio.com/items/steebn.webfocus/changelog).
+Releases Notes can be found in the [changelog](https://marketplace.visualstudio.com/items/steebn.webfocus/changelog).
  
+----------
