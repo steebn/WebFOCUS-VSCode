@@ -9,18 +9,31 @@ This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .
 
  - Syntax highlighting
  - Snippets for:
+ 
     - **Functions:** Type '**wff**' (**W**eb**F**ocus**F**unction) and get a list of all of the built in functions available
+
     ![Function snippet](images/Functions.gif)
+
     - **ON TABLE SET:** Type '**ots**' (**O**n **T**able **S**et) *(currently a limited list)*
-    ![ON TABLE SET snippet](images/OnTableSet.gif)    
+
+    ![ON TABLE SET snippet](images/OnTableSet.gif)   
+
     - **Output Formats:** Type '**fmt**' (**f**or**m**a**t**)
-    ![Format snippet](images/Format.gif)    
+
+    ![Format snippet](images/Format.gif)   
+
     - **Dialog Manager Commands:** Type '-[First Letter of DM Command]'  
+
     - Different **FILE** actions: Type 'file'
+
     - **Tracing:** Type 'trace' *(currently only SQL Trace is available)*
+
     - **WHENCE:** Type 'whence' for identifying file locations
+
     - **Query Commands:** Type '**wf?**' for a list of (**?**) query commands
+
     - **Non DM SET:** Type '**set**' *(currently a limited list)*
+    
     - **Comment Block:** Type '**comment**'
 
 ## Requirements
