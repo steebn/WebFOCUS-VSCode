@@ -1,0 +1,30 @@
+{
+	"fileTypes": [],
+	"injectionSelector": "L:markup.fenced_code.block.markdown",
+	"patterns": [
+		{
+			"include": "#superjs-code-block"
+		}
+	],
+	"repository": {
+		"superjs-code-block": {
+			"begin": "(-HTMLFORM BEGIN)+\\s+(NOEVAL)?$",
+			"end": "^(-HTMLFORM END)+",
+			"patterns": [
+				{
+					"begin": "(^|\\G)(\\s*)(.*)",  
+					"while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
+					"contentName": "meta.embedded.block.html",
+					"patterns": [
+						{
+							"include": "html"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "markdown.superjs.codeblock"
+}
+
+

@@ -1,0 +1,100 @@
+{
+    "name": "webfocus",
+    "displayName": "WebFOCUS",
+    "description": "Provide full language support for WebFOCUS.",
+    "version": "0.0.1",
+    "publisher": "SMHall",
+	"license": "MIT",
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#505050",
+		"theme": "dark"
+	},
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Programming Languages",
+        "Formatters",
+        "Snippets",
+        "Other"	    
+    ],
+    "keywords": [
+		"FOCUS",
+		"WebFOCUS",
+		"snippet",
+		"fex",
+		"focexec"
+	],
+    "activationEvents": [
+        "onCommand:extension.sayHello"
+    ],
+    "main": "./extension",
+    "contributes": {
+        "languages": [
+            {
+                "id": "focexec",
+                "aliases": [ "FOCUS Executable", "WebFOCUS"],
+                "extensions": [".fex"],
+                "configuration": "./languages/focexec.json"
+            },
+            {
+                "id": "master",
+                "aliases": ["Master File"],
+                "extensions": [".mas"],
+                "configuration": "./languages/master.json"
+            },
+            {
+                "id": "access",
+                "aliases": ["Access File"],
+                "extensions": [".acx"],
+                "configuration": "./languages/access.json"
+            },
+            {
+                "id": "stylesheet",
+                "aliases": ["Stylesheet"],
+                "extensions": [".sty"],
+                "configuration": "./languages/stylesheet.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "focexec",
+                "path": "./snippets/focexec.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "focexec",
+                "scopeName": "source.fex",
+                "path": "./syntaxes/focexec.tmLanguage.json"
+            },
+            {
+                "language": "master",
+                "scopeName": "source.mas",
+                "path": "./syntaxes/master.tmLanguage.json"
+            },
+            {
+                "language": "access",
+                "scopeName": "source.acx",
+                "path": "./syntaxes/access.tmLanguage.json"
+            },
+            {
+                "language": "stylesheet",
+                "scopeName": "source.sty",
+                "path": "./syntaxes/stylesheet.tmLanguage.json"
+            }
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21",
+        "eslint": "^4.11.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    }
+}

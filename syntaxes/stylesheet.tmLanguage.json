@@ -1,0 +1,500 @@
+{
+	"name": "stylesheet",
+	"scopeName": "source.sty",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include":"#numbers"
+		},
+		{
+			"include":"#htmlform"
+		},
+		{
+			"include": "#properties"
+		},
+		{
+			"include": "#engines"
+		},
+		{
+			"include":"#dialoguemgr"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include":"#reporting"
+		},
+		{
+			"include": "#dialoguecond"
+		},
+		{
+			"include":"#conditions"
+		},
+		{
+			"include":"#modify"
+		}
+	],
+	"repository": {
+		"dialoguemgr" :{
+			"begin": "(-(TYPE|RUN|INCLUDE|EXIT))\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.define.stylesheet"
+				}
+			},
+			"end": "$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.end.bracket.curly.css"
+				}
+			},
+			"name": "meta.property-list.css",
+			"patterns": [
+				{
+					"include":"#variables"
+				}
+			]
+		},
+		"dialoguecond": {
+			"begin": "^(-)(READ|GOTO|CLOSE|PASS|READ|READFILE|WRITE|\\?|START|SET|IF|DEFAULT|DEFAULTS|DEFAULTH|REPEAT)*\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.define.stylesheet"
+				}
+			},
+			"end": "$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.section.property-list.end.bracket.curly.css"
+				}
+			},
+			"name": "meta.property-list.css",
+			"patterns": [
+				{
+					"include":"#variables"
+				},
+				{
+					"include":"#conditions"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include":"#numbers"
+				}
+			]
+		},
+		"formats" : {
+			"patterns":[
+				{
+					"match":"\\b(A[0-9]{1,}(B|V)*)\\b",
+					"name": "constant.numeric.stylesheet"
+				},
+				{
+					"match":"\\b(TX[0-9]*)\\b",
+					"name": "constant.numeric.stylesheet"
+				},
+				{
+					"match":"\\b(I[0-9]{1,}(C|S)*)\\b",
+					"name": "constant.numeric.stylesheet"
+				},
+				{
+					"match":"\\b((D|P|F)[0-9]{1,}[.0-9]*(S|M|N|B|C)*)\\b",
+					"name": "constant.numeric.stylesheet"
+				},
+				{
+					"match":"\\b(DATE|YYMD|MDYY|YMD|A4MD|HYYMDs|HYYMDm|HHISsm|A8YYMD|I8YYMD|A8MDYY|I8MDYY|I6MDY|I6YYM|I6YMTD|I6YMD|QYY|MYY|AUTODATE)\\b",
+					"name": "constant.numeric.stylesheet"
+				},
+				{
+					"match":"\\b((S|SH)[0-9]{1,})\\b",
+					"name": "keyword.control.define.stylesheet"
+				},
+				{
+					"match":"=",
+					"name": "punctuation.separator.stylesheet" 
+				}
+			]
+		},
+		"modify": {
+			"patterns": [
+				{
+					"match": "\\b(MODIFY|FILE|DATA|FILE|FIXFORM|FREEFORM|ON|FROM|MATCH|NOMATCH|DATA)\\b",
+					"name": "keyword.other.define.stylesheet"
+				},
+				{
+					"match": "\\b(REJECT|INCLUDE|CONTINUE|UPDATE)\\b",
+					"name": "keyword.control.define.stylesheet"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "(?<!&)&{1,2}\\b(\\w+)\\b",
+					"name":"variable.name.other.stylesheet"
+				},	
+				{
+					"match": "(\\.)(EXISTS|TYPE|LENGTH|EVAL)\\b",
+					"name" : "support.function.expression.stylesheet"
+				}
+			]
+		},
+		"htmlform": {
+			"begin" : "^-(HTMLFORM)\\b[\\s\\t\\n]{1,}\\b(BEGIN)\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.define.stylesheet"
+				},
+				"1": {
+					"name": "keyword.other.define.stylesheet"
+				}
+			},
+			"end" : "^-(HTMLFORM)\\b[\\s\\t\\n]{1,}\\b(END)\\b",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.other.define.stylesheet"
+				}
+			},
+			"name":"meta.function.define.stylesheet",
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include":"#numbers"
+				}
+			]
+		},
+		"conditions":{
+			"patterns":[
+				{
+					"match": "\\b(GOTO|TIMES|FOR|FROM|TO|STEP)\\b",
+					"name": "keyword.other.comparison.stylesheet"
+				},	
+				{
+					"match": "\\b(IF|ELSE|WHERE|WHEN|THEN)\\b",
+					"name": "keyword.other.comparison.stylesheet"
+				},
+				{
+					"match": "\\b(EQ|NE|LE|LT|GE|GT|IN|IS|NOT|CONTAINS|LIKE|OR|AND)\\b",
+					"name": "keyword.control.comparison.stylesheet"
+				},
+				{
+					"match": "\\*",
+					"name": "keyword.other.unit.math.stylesheet"
+				},
+				{
+					"match": "[!<>]?=|<>|<|>",
+					"name": "keyword.control.comparison.stylesheet"
+				},
+				{
+					"match": "(-|\\+|/)",
+					"name": "keyword.other.unit.math.stylesheet"
+				},
+				{
+					"match": "\\|",
+					"name": "keyword.control.comparison.stylesheet"
+				},
+				{
+					"match": "\\|\\|",
+					"name": "keyword.control.comparison.stylesheet"
+				},
+				{
+					"include": "#formats"
+				},
+				{
+					"include": "#functions"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include":"#numbers"
+				}
+			]
+		},
+		"functions":{
+			"patterns": [
+				{
+					"match":"\\b(ARGLEN|ASIS|BITSON|BITVAL|BYTVAL|CHKFMT|CTRAN|CTRFLD|EDIT|GETTOK|LCWORD|LCWORD2|LCWORD3|LJUST|LOCASE|OVRLAY|PARAG|POSIT|REVERSE|RJUST|SOUNDEX|SPELLNM|SQUEEZ|STRIP|STRREP|SUBSTR|TRIM|UPCASE|LENV|LOCASV|POSITV|SUBSTV|TRIMV|UPCASV|CHAR_LENGTH|DIGITS|LOWER|LPAD|LTRIM|POSITION|RPAD|RTRIM|SUBSTRING|TOKEN|TRIM_|UPPER|DCTRAN|DEDIT|DSTRIP|DSUBSTR|JPTRANS|CHAR2INT|INT2CHAR|LCWORD|LCWORD2|LENGTH|LJUST|LOWER|MASK|MNTGETTOK|NLSCHR|OVRLAY|POSIT|RJUST|SELECTS|STRAN|STRCMP|STRICMP|STRNCMP|SUBSTR|TRIM|TRIMLEN|UPCASE|DB_EXPR|DB_INFILE|DB_LOOKUP|DECODE|FIND|LAST|LOOKUP|DATEADD|DATECVT|DATEDIF|DATEMOV|DATETRAN|DPART|FIYR|FIQTR|FIYYQ|HMASK|TODAY|AYM|AYMD|CHGDAT|DA|DMY|MDY|YMD|DOWK|DOWKL|DT|GREGDT|JULDAT|YM|CVTSTIME|GETSTIME|HADD|HCNVRT|HDATE|HDIFF|HDTTM|HEXTR|HGETC|HMASK|HHMMSS|HINPUT|HMIDNT|HNAME|HPART|HSETPT|HTIME|HTMTOTS|TIMETOTS|WRTSTIME|DTADD|DTDIFF|DTPART|DTRUNC|Initial_HHMMSS|Initial_TODAY|TODAY2|ADD|DAY|JULIAN|MONTH|QUARTER|SETMDY|SUB|WEEKDAY|YEAR|ATODBL|FPRINT|FTOA|HEXBYT|ITONUM|ITOPACK|ITOZ|PCKOUT|PTOA|TSTOPACK|UFMT|XTPACK|IWC.GetAppCGIValue|IWC.FindAppCGIValue|ABS|ASIS|BAR|CHKPCK|DMOD|FMOD|IMOD|EXP|EXPN|FMLINFO|FMLLIST|FMLFOR|FMLCAP|INT|LOG|MAX|MIN|MIRR|NORMSDST|NORMSINV|PRDNOR|PRDUNI|RDNORM|RDUNIF|SQRT|XIRR|IWCLink|IWCSwitchToSecure|IWCSwitchToUnsecure|IWCTrigger|CLSDDREC|FEXERR|FINDMEM|GETCOOKI|GETHEADR|GETPDS|GETUSER|MVSDYNAM|PUTCOOKI|PUTDDREC|SLEEP|SPAWN|SYSTEM|SYSVAR)\\b",
+					"name": "support.function.expression.stylesheet"
+				},
+				{
+					"match":"\\b(TRUNCATE|RGB)\\b",
+					"name": "support.function.expression.stylesheet"
+				}
+			]
+		},
+		"properties": {
+			"patterns": [
+				{
+					"begin":"^[\\s\\t\\n]*(SET)\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.define.stylesheet"
+						}
+					},
+					"end":"$",
+					"patterns": [
+						{
+							"name": "meta.property-name.stylesheet",
+							"include": "#property-names"
+						},
+						{
+							"begin": "[\\s\\t\\n]*(=)",
+							"beginCaptures": {
+								"1": {
+									"name": "punctuation.separator.key-value.stylesheet"
+								}
+							},
+							"end": "[\\s\\t\\n]*$",
+							"contentName": "meta.property-value.stylesheet",
+							"patterns": [
+								{
+									"include": "#property-values"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		"engines": {
+			"patterns": [
+				{
+					"begin":"^[\\s\\t\\n]*(ENGINE)\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.define.stylesheet"
+						}
+					},
+					"end":"$",
+					"patterns": [
+						{
+							"include": "#property-names"
+						},
+						{
+							"match": "\\b(SET)\\b",
+							"name": "keyword.other.define.stylesheet"
+						},
+						{
+							"include": "#property-values"
+						},
+						{
+							"include": "#strings"
+						},
+						{
+							"include":"#numbers"
+						}
+					]
+				}
+			]
+		},
+		"property-names": {
+			"patterns" : [
+				{
+					"match": "[\\s\\t\\n]{1,}(ARGRAPHENGINE|EMGSRV|2PARTNAME|3DGRAPH|ACCBLN|ACCESSHTML|ACCESSIBLE|ACCESSPDF|ACROSSLINE|ACROSSPRT|ACRSVRBTITL|ADABAS|AGGRRATIO|ALL|ALLOWCVTERR|ALPHACLEAN|ASNAMES|AUTODRILL|AUTOINDEX|AUTOPATH|AUTOSTRATEGY|AUTOTABLEF|AUTOTICK|BARNUMB|BARSPACE|BARWIDTH|BINS|BLANKINDENT|BLKCALC|BOTTOMMARGIN|BSTACK|BUSDAYS|BYDISPLAY|BYPANELING|BYSCROLL|CACHE|CALC|CALCMEMORY|CALCROWS|CALCWAIT|CARTESIAN|CASESTAT|CDN|CENT-ZERO|CGI-RELEASE|CNOTATION|CNVERR|CODEBASE|COLLATION|COLUMNSCROLL|COMMIT|COMPMISS|COMPUTE|CONTENTLEN|COUNTWIDTH|CURRENCY|DATEDISPLAY|DATEFNS|DATEFORMAT|DATEOUTPUT|DATETIME|DBAJOIN|DBASOURCE|DBLOAD|DBMSMSGLIMIT|DEFCENT|DEFECHO|DISPLAY|DISTRIBUTE|DMPRECISION|DROPBLNKLINE|DTSTANDARD|DTSTRICT|DUPLICATECOL|EMPTYREPORT|END_OF_TEXT|EQTEST|ERROROUT|ESTLINES|ESTRECORDS|EUROFILE|EXCELRELEASE|EXL2KLANG|EXPANDBYROWEXTAGGR|EXTENDNUM|EXTHOLD|EXTRACT|EXTSORT|EXTTERM|FIELDNAME|FILECASE|FILENAME|FIXFRMINPUT|FIXRETRIEVE|FOC144|FOC2GIGDB|FOCALLOC|FOCFIRSTPAGE|FOCSTACK SIZE|FOCTRANSFORM|FORMATGRAPH|FORMFEED|FORMPROPMISS|FRAME|GMISSING|GMISSVAL|GPROMPT|GRAPHDEFAULT|GRAPHENGINE|GRAPPLETONLY|GRIBBON|GRID|GRLEGEND|GRMERGE|GRMULTIGRAPH|GRWIDTH|GRXAXIS|GTREND|HAUTO|HAXIS|HCLASS|HDAY|HEADFOOTACR|HIDENULLACRS|HIPERFOCUS|HISTOGRAM|HMAX|HMIN|HNODATA|HOLDATTRS|HOLDFORMAT|HOLDLIST|HOLDMISS|HOLDSTAT|HOTMENU|HSTACK|HTICK|HTMLCSS|HTMLFORMTYPE|IBMLE|ICUFORM|IFSORT|IMMEDTYPE|IMPLIEDLOAD|IMS|INDEX TYPE|JOIN2MEMORY|JOINOPT|KEEPDEFINES|KEEPFILTERS|LABELPROMPT|LANGUAGE|LAYOUTRTL|LEADZERO|LEFTMARGIN|LINES/PAGE|LINES/PRINT|LINKMODE|LOADLIMIT|LOOKGRAPH|MAXDATAEXCPT|MAXLRECL|MAXPOOLMEM|MDEXTERNAL|MDIBINS|MDICARDWARN|MDIPROGRESS|MESSAGE|MINIO|MISSINGTEST|MODCOMPUTE|MODE|MORE|MPRINT|MULTIPATH|NATVFLG|NLSCTRL|NODATA|OFFLINE-FMT|OLAPDISPLAY|OLAPGRMERGE|OLAPPANE|ONFIELD|ONLINE-FMT|ORIENTATION|OVERFLOWCHAR|PA01|PA02|PAGE-NUM|PAGESIZE|PANEL|PAUSE|PCHOLD-FMT|PCOMMA|PDFLINETERM|PF01|PF02|PF03|PF04|PF05|PF06|PF07|PF08|PF09|PF10|PF11|PF12|PF13|PF14|PF15|PF16|PF17|PF18|PF19|PF20|PF21|PF22|PF23|PF24|PIE|POOL|POOLBATCH|POOLFEATURE|POOLMEMORY|POOLRESERVE|POSITIONMODE|PREFIX|PREVIEW|PRINT|PRINTDST|PRINTPLUS|PSPAGESETUP|QUALCHAR|QUALTITLES|RADIOBUTTON|RANK|REBUILDMSG|RECAP-COUNT|RECORDLIMIT|REQSCOPE|RIGHTMARGIN|RPAGESET|SAVEMATRIX|SBORDER|SCREEN|SESSION MONITOR|SHADOW PAGE|SHIFT|SHORTPATH|SMARTMODE|SORTLIB|SORTNAME|SPACES|SQLENGINE|SQLTCARTES|SQLTOPTTF|SQUEEZE|STYLEMODE|STYLESHEET|SUMMARYLINES|SUMPREFIX|SUSI|SUTABSIZE|TALKCASE|TCPIPINT|TEDMAXLINE|TEMP DISK|TERMINAL|TESTDATE|TEXTFIELD|TITLES|TOPMARGIN|TRACKIO|TRMOUT|TRMSD|TRMSW|TRMTYP|TSORUNAM24|UNITS|VAUTO|VAXIS|VCLASS|VGRID|VIEWERMULT|VIEWNAMESIZE|VMAX|VMIN|VMSFLOATCONV|VTICK|VZERO|WEBHOME|WEBVIEWALLPG|WEBVIEWCLMSG|WEBVIEWCLOSE|WEBVIEWER|WEBVIEWHELP|WEBVIEWTARG|WEEKFIRST|WIDTH|WINPFKEY|WPMINWIDTH|XFBINS|XFC|XMLTYPE|XRETRIEVAL|YRTHRESH|ZIIP|EXCELSERVURL|DEFINES)\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{
+					"match":"\\b(EMBEDHEADING|3D|AUTOTICK|BARNUMB|BSTACK|GRAPHEDIT|GRAPHSERVURL|HAUTO|HAXIS|HCLASS|HISTOGRAM|HMAX|HMIN|HSTACK|HTICK|LOOKGRAPH|PIE|VAUTO|VAXIS|VCLASS|VGRID|VMAX|VMIN|VTICK|VZERO|GRAPHSTYLE)\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{	
+					"match":"\\b(TITLELINE|SUMMARIZE|SUBTOTAL|ROW-TOTAL)\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{
+					"match": "\\b(AS|HOLDLIST|FORMAT|MISSING|SHOWBLANKS|STYLE|COMPOUND|MSG|INDEX|LINES)\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{
+					"match": "\\b(TIMEOUT|CLASSPATH|LOGINTIMEOUT|PASSRECS|ISOLATION)\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{
+					"match": "\\b(MAGNIFY|APT|BASEURL|DATASOURCE|AUTOCLOSE|DELIMITER|BATCHSIZE|EDACTPARMF|ZCOMP|DATABASE|USER|OPTIONs|SESSION|PASSRECS|ISOLATION|JOINTYPE|JOINOPT|CDN|TARGET_ATTR|DATETIME_PROCESS|CONNECTION_ATTRIBUTES|DEFAULT_CONNECTION|AUTODISCONNECT)\\b",
+					"name": "support.type.property-name.stylesheet"
+				}
+			]
+		},
+		"property-values": {
+			"patterns" : [
+				{
+					"match": "\\b(PRINTONLY|MIXED|FOCUS|SIMPLE|ON|OFF|MFACT|NOPAGE|NORMAL|HIDEONE|NEW|ADVANCED|TABBED|END|REJECT|CODEPAGE|RECORDLIMIT|AUTO|XSBEG|NATV|FULL|BACKWARD|FORWARD|LST|UNKNOWN|TODAY|INCHES|_blank|RAW|IEEE|IBM3270|ONLINE|DENSE|IMMEDIATE|RETURN|LEFT|UNDO|RIGHT|SORT|CURRENT|Letter|DEFAULT|STARTUP|HOST|XML|CANCEL|HX|WILDCARD|AMENGLISH|LOWER|HTML|ASCII|BINARY|OLD|EDA|WINNT|COMPOUND|STANDARD|DHTML|PORTRAIT)\\b",
+					"name": "support.constant.property-value.stylesheet"
+				},
+				{
+					"match": "\\b(OLD|NEW|AND|OR|-|NOBREAK|PROPAGATE|SERVER|DBMS)\\b",
+					"name": "support.constant.property-value.stylesheet"
+				},
+				{
+					"match":"\\b(HTML|HTMTABLE|DHTML|ALPHA|DOC|PDF|WP|PS|Text|DIF|PPT|PPTX|EXL97|EXCEL|EXL2K|PIVOT|FORMAT|XLSX|DFIX|LOTUS|WK1|SYLK|COMMA|COM|COMT|TAB|TABT|XML|JSCHART|AHTML|FLEX|APDF|VISDIS)\\b",
+					"name": "support.constant.property-value.stylesheet"
+				},
+				{
+					"include":"#adapters"
+				},
+				{
+					"match":"\\b(JSCHART|FUSION|JSFUSION|FIN|PRIVATE|COMMAND|COMMIT|DEFAULT|RU|RC|RR|SE|CH|CS|LINE|VLINE|VLINE2|HLINE|HLINE2|VBAR|3D_BAR|PIE|SCATTER|VAREA|3DAREAS|BOXPLOT|BUBBLE|FUNNEL|GAUGE1|VHISTOGR|MEKKO|PARABOX|PARETO|POLAR|RADARL|STREAM|3DSURFCE|TAGCLOUD|TREEMAP|VWATERFL|CUSTOM)\\b",
+					"name": "support.constant.property-value.stylesheet"
+				}
+			]
+		},
+		"adapters": {
+			"patterns": [
+				{
+					"match": "\\b(SQLMSS|SQLORA|SQLDB2|DB2|SQLSYB|COMT|COM|TAB|TABT|VSAM|VSAMX|STREAM|CISAM|ISAM|FIX|FOC|FOCUS|XFOCUS|DFIX|SQLODBC|XML|MYSQL|SOAP|SIBIN|SQLUV|SQLTRN|SQLUND|SQLDBC|BWBAPI|SQLMYSQL|SSAS|SQLBAS|SQLSAP|SQLING|EDA|RMS|SQLNEZ|SQLNUC|SFDC|SQLPARA|QRYI|SQLPRO|SQLPSTGR|SQLRDB|SQLRED|SQLPSQ|SQL1010|REST|SQLISM|ADBSINX|NATB|DATACOM|DBFILE|EJB|ESSBASE|SQLEXCEL|SQLGPD|SQLHYP|IDMSR|SQLIDMS|SQLINF|SQLIPX|IWAF|SQLMMX|SQLJDBC|JSON|LOTUS|SQLMAC|CPMILL|M204INX|DSM)\\b",
+					"name": "keyword.control.define.stylesheet"
+				},
+				{
+					"match":"\\b(R|I|H|ON|OFF|NO|VARIABLE|U|KU|KM|KL|DKU|DKM|KLU|INNER|LEFT_OUTER)\\b",					
+					"name":"keyword.control.define.stylesheet"
+				}
+			]
+		},
+		"reporting": {
+			"patterns":[
+				{
+					"match":"\\b(TABLE|MATCH|GRAPH|DEFINE|FILE|END|ENDSTYLE|COMPUTE|GRAPH_SCRIPT|GRAPH_JS|FILEDEF|DISK|USE|RECAP)\\b",
+					"name": "keyword.other.define.stylesheet"
+				},
+				{
+					"match":"\\b(SQL|FROM|PREPARE|FOR|EXECUTE|EXEC|SELECT|JOIN|CASE|DISTINCT|CREATE|INSERT|UPDATE|DELETE|TRUNCATE|VIEW|UNION|ALL|INTERSECT|EXCEPT|LIKE|NULL|COALESCE|NULLIF|IFNULL|ORDER|BY|GROUP|CREATE|DROP|VIEW)\\b",
+					"name": "keyword.other.define.stylesheet"
+				},
+				{
+					"match" : "\\b(MAX|FST|LST|MIN|SUM|AVE|CNT)(\\.)",
+					"name": "support.function.expression.stylesheet"
+				},
+				{
+					"match" : "\\b(SUM|PRINT|RUN|BY|AND|MORE|ACROSS|HOLD|RANKED|HIGHEST|HEADING)\\b",
+					"name": "keyword.other.define.stylesheet"
+				},
+				{
+					"match" : "\\b(UNITS|PAGESIZE|RIGHTGAP|LEFTGAP|SQUEEZE|GRID|ORIENTATION|FONT|SIZE|STYLE|TYPE|IMAGE|HEADALIGN|FOCEXEC|COLSPAN|OBJECT|ITEM|WRAP|JUSTIFY|POSITION|LINE|COLUMN|COLOR|BACKCOLOR|DEFMACRO|MACTYPE|WHEN|MACRO|ACROSSCOLUMN|LEFTMARGIN|RIGHTMARGIN|TOPMARGIN|BOTTOMMARGIN|TOPGAP|BOTTOMGAP)\\b",
+					"name": "keyword.other.define.stylesheet"
+				},
+				{
+					"match": "\\b(CENTER|SUBHEAD|SUBFOOT|FOOTING|SUBTOTAL|GRANDTOTAL|TABHEADING|TABFOOTING|BODY|BOLD|ITALIC|POINTS|LANDSCAPE|LEFT|RIGHT|TEXT|PORTRAIT|REPORT|HEADING|DATA|INTERNAL|NORMAL|TITLE|ACROSSVALUE|ACROSSTITLE|LETTER|SCREEN|LEGAL|TABLOID|LEDGER|C|D|E|STATEMENT|EXECUTIVE|FOLIO|A3|A4|A5|B4|B5|QUARTO|ENVELOPE-9|ENVELOPE-10|ENVELOPE-11|ENVELOPE-12|ENVELOPE-14|ENVELOPE-MONARCH|ENVELOPE-PERSONAL|ENVELOPE-DL|ENVELOPE-C3|ENVELOPE-C4|ENVELOPE-C5|ENVELOPE-C6|ENVELOPE-C65|ENVELOPE-B4|ENVELOPE-B5|ENVELOPE-B6|ENVELOPE-ITALY|US-STANDARD-FANFOLD|GERMAN-STANDARD-FANFOLD|GERMAN-LEGAL-FANFOLD)\\b",
+					"name": "keyword.control.styles.stylesheet"
+				},
+				{
+					"match": "[\\s\\t\\n]{1,}(AS|NOPRINT|CLEAR|ADD|LEFT|OUTER|INNER|LEFT_OUTER|TO|PAGE-BREAK|SKIP-LINE)*\\b",
+					"name": "support.type.property-name.stylesheet"
+				},
+				{
+					"begin":"^[\\s\\t\\n]*(ON|AFTER)\\b",
+					"beginCaptures": {
+						"0": {
+							"name": "keyword.other.define.stylesheet"
+						}
+					},
+					"end":"$",
+					"patterns":[
+						{
+							"match":"\\b(TABLE|MATCH|GRAPH)\\b",
+							"name": "keyword.other.define.stylesheet"
+						},
+						{
+							"match":"\\b(SET|SAVE|PCHOLD|HOLD|SAVB|SUBFOOT|SUBHEAD|FOOTER)\\b",
+							"name": "keyword.other.define.stylesheet"
+						},
+						{
+							"include": "#property-names"
+						},
+						{
+							"include": "#property-values"
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"match": "((\\$).*$)",
+					"name": "comment.line.stylesheet"
+				},
+				{
+					"match": "((^-\\*).*$)",
+					"name": "comment.line.stylesheet"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"match":"\\b([0-9]{1,})\\b",
+					"name": "constant.numeric.stylesheet"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.stylesheet"
+						}
+					},
+					"end": "\"|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.stylesheet"
+						}
+					},
+					"name": "string.quoted.double.stylesheet",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\\"]|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.stylesheet"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.stylesheet"
+						}
+					},
+					"end": "'|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.stylesheet"
+						}
+					},
+					"name": "string.quoted.single.stylesheet",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\']|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.stylesheet"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				}
+			]
+		}
+	}
+}

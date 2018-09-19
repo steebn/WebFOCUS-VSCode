@@ -1,0 +1,2575 @@
+{
+	"CommentBlock": {
+		"scope": "focexec",
+        "prefix": "comment",
+        "body": [
+            "-********************************************************************************",
+            "-* ${1:comment}",
+            "-********************************************************************************"
+        ],
+        "description": "Code snippet for a comment block"
+    },
+	"DEFINE": {
+		"scope": "focexec",
+		"prefix": "FILE",
+		"body": [
+			"DEFINE FILE ${1:FileName}",
+			"\t ${2: }",
+			"END"
+		],
+		"description": "Code snippet for DEFINE"
+	},
+	"TABLE": {
+		"scope": "focexec",
+		"prefix": "FILE",
+		"body": [
+			"TABLE FILE ${1:FileName}",
+			"$0",
+			"END"
+		],
+		"description": "Code snippet for TABLE"
+	},
+	"FILEDEF": {
+		"scope": "focexec",
+		"prefix": "FILE",
+		"body": [
+			"FILEDEF ${1:ddname} DISK ${2:Path\\Filename}"
+		],
+		"description": "Code snippet for FILEDEF"
+	},
+	"FILEDEF/CLEAR": {
+		"scope": "focexec",
+		"prefix": "FILE",
+		"body": [
+			"FILEDEF ${1:ddname} CLEAR",
+			"FILEDEF ${1:ddname} DISK ${2:Path\\FileName}"
+		],
+		"description": "Code snippet for FILEDEF"
+	},
+	"WHENCE": {
+		"scope": "focexec",
+		"prefix": "WHENCE",
+		"body": ["WHENCE ${1:fileName} ${2|FOCEXEC,FOCUS,MASTER,ACCESS,FOCSTYLE|}"],
+		"description": "Identifying the Files Being Used"
+	},
+
+
+	"? COMBINE": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? COMBINE ",
+			"$0"
+		],
+		"description": "Displays a list of combined file structures."
+	},
+	"? DEFINE": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? DEFINE ",
+			"$0"
+		],
+		"description": "Displays currently active virtual fields created by the DEFINE command or attribute."
+	},
+	"? [focErrorNum]": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? ${1:focErrorNum} ",
+			"$0"
+		],
+		"description": "Displays statistics about the focerror code."
+	},
+	"?F": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["?F ",
+			"$0"
+		],
+		"description": "Lists fields currently available."
+	},
+	"?FF": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["?FF ",
+			"$0"
+		],
+		"description": "Lists field names, aliases, and format information for an active Master File."
+	},
+	"? FILEDEF": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? FILEDEF ",
+			"$0"
+		],
+		"description": "Displays the current logical names assigned by the FILEDEF command."
+	},
+	"? HOLD": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? HOLD ",
+			"$0"
+		],
+		"description": "Displays fields described in a HOLD Master File."
+	},
+	"? JOIN": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? JOIN ",
+			"$0"
+		],
+		"description": "Displays JOIN structures that exist between data sources."
+	},
+	"? SET": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? SET ${1| ,NOT|} ${2|ALL,PROMPT,ONTABLE,FOCPARM,HELP|}",
+			"$0"
+		],
+		"description": "Displays parameter settings that control WebFOCUS."
+	},
+	"? STAT": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? STAT ",
+			"$0"
+		],
+		"description": "Displays statistics about the last command executed."
+	},
+	"? STYLE": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? STYLE ",
+			"$0"
+		],
+		"description": "Displays StyleSheet Parameter Settings"
+	},
+	"? USE": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? USE ",
+			"$0"
+		],
+		"description": "Displays data sources specified with the USE command."
+	},
+	"? &&": {
+		"scope": "focexec",
+		"prefix": "wf?",
+		"body": ["? && ",
+			"$0"
+		],
+		"description": "Displays values of global variables."
+	},
+
+
+	"-SET &ECHO": {
+		"scope": "focexec",
+		"prefix": "-SET",
+		"body": ["-SET &ECHO=${1|ALL,NONE,OFF,ON|};",
+			"$0"
+		],
+		"description": "For debugging.  Controls the level of DM execution echoing."
+	},
+	"-SET &STACK": {
+		"scope": "focexec",
+		"prefix": "-SET",
+		"body": ["-SET &STACK=${1|OFF,ON|};",
+			"$0"
+		],
+		"description": "For debugging.  Enable or disable the FOCSTACK"
+	},
+	"-SET &VAR": {
+		"scope": "focexec",
+		"prefix": "-SET",
+		"body": ["-SET &${1:VariableName} = ${2:VariableValue};",
+			"$0"
+		],
+		"description": "For setting a user defined variable."
+	},
+	"-SET &&GLOBALVAR": {
+		"scope": "focexec",
+		"prefix": "-SET",
+		"body": ["-SET &&${1:VariableName} = ${2:VariableValue};",
+			"$0"
+		],
+		"description": "For setting a user defined variable."
+	},
+	"-HTMLFORM": {
+		"scope": "focexec",
+		"prefix": "-HTMLFORM",
+		"body": ["-HTMLFORM BEGIN ${1:NOEVAL}",
+			"$0",
+			"-HTMLFORM END"
+		],
+		"description": "For setting a user defined variable."
+	},
+	"-INCLUDE": {
+		"scope": "focexec",
+		"prefix": "-INCLUDE",
+		"body": ["-INCLUDE IBFS:${1|/WFC/Repository/,/EDA/EDASERVE/|}",
+			"$0"
+		],
+		"description": "For including an external file into your report"
+	},
+	"-EXIT": {
+		"scope": "focexec",
+		"prefix": "-EXIT",
+		"body": ["-EXIT",
+			"$0"
+		],
+		"description": "For including an external file into your report"
+	},
+
+
+	"SQL TRACE": {
+		"scope": "focexec",
+		"prefix": "TRACE",
+		"body": ["-SET &ECHO = ALL;",
+			"SET TRACEUSER = ON",
+			"SET TRACEOFF = ALL",
+			"SET TRACEON = SQLAGGR//CLIENT",
+			"SET TRACEON = STMTRACE//CLIENT",
+			"SET TRACEON = STMTRACE/2/CLIENT",
+			"SET TRACESTAMP = OFF",
+			"SET XRETRIEVAL = ${1|OFF,ON|}",
+			"$0"
+		],
+		"description": "Return the SQL code passed to SQL Server"
+	},
+
+
+	"AHTML": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT AHTML",
+			"$0"
+		],
+		"description": "(.htm, .html) Provides customizable options for creating HTML formatted reports that enable users to experience features normally found in Excel workbooks. Suggested Uses: Report Library, Email for display in a web browser."
+	},
+	"ALPHA": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|HOLD,PCHOLD|} AS ${2:filename} FORMAT ALPHA",
+			"$0"
+		],
+		"description": "(.ftm, .txt) Saves scheduled output as fixed-format character data. Suggested Uses: For display in a text document, for further reporting in WebFOCUS, and as a transaction file for modifying a data source."
+	},
+	"COMMA": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT COMMA",
+			"$0"
+		],
+		"description": "(.csv) Saves scheduled output as a variable-length text file in comma-delimited format with character values enclosed in double quotation marks (\" \"). All blanks within fields are retained. Suggested Uses: For further processing in a database application. This format type can be imported into applications, such as Excel or Lotus."
+	},
+	"COMT": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT COMT",
+			"$0"
+		],
+		"description": "(.csv) Adds titles to a COMMA file. Saves scheduled output as a variable-length text file in comma-delimited format with character values enclosed in double quotation marks (\" \"). All blanks within fields are retained. Suggested Uses: For further processing in a database application. This format type can be imported into applications, such as Excel or Lotus."
+	},
+	"DFIX": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT DFIX DELIMITER ${2:|} ENCLOSURE ${3:\"} HEADER ${4|YES,NO|}",
+			"$0"
+		],
+		"description": "(.ftm, .txt) Description: Enables you to define any character to act as the delimiter (DELIMITER = your choice of character), include quotation marks around alpha fields (ENCLOSURE = \"), and include column titles (HEADER = YES/NO). Suggested Uses: Use in files that require custom (non-standard) delimiters."
+	},
+	"DOC": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|HOLD,PCHOLD|} AS ${2:filename} FORMAT DOC",
+			"$0"
+		],
+		"description": "(.txt) Scheduled output opens as a plain-text word processing document. Text can be opened by any word processing application. Retains ASCII form feed characters to correctly display page output. Suggested Uses: Word Processing applications, printing unformatted reports, email, Report Library."
+	},
+	"EXL07": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT EXL07",
+			"$0"
+		],
+		"description": "(.xlsx) Scheduled output opens within Excel 2007 or later. Suggested Uses: Email, Report Library"
+	},
+	"EXL07 FORMULA": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT EXL07 FORMULA",
+			"$0"
+		],
+		"description": "(.xlsx) Scheduled output opens within Excel 2007 or later. Contains Excel formulas that calculate and display the results of any type of summed information, such as column totals, row totals, and subtotals. Suggested Uses: Email, Report Library"
+	},
+	"EXL07 TEMPLATE": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT EXL07 TEMPLATE ${1:templateName} SHEETNUMBER {2}",
+			"$0"
+		],
+		"description": "(.xlsx) Scheduled output opens within Excel 2007 or later. Contains Excel formulas that calculate and display the results of any type of summed information, such as column totals, row totals, and subtotals. Suggested Uses: Email, Report Library. Considerations: The default file extension for the EXL07 TEMPLATE format is .xlsx. If the template used in the procedure is a macro-enabled template, you must manually change the extension to .xlsm, in order for the output file to open correctly."
+	},
+	"FOCUS": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT FOCUS ${2:INDEX} ",
+			"$0"
+		],
+		"description": "FOCUS data sources with SUFFIX = FOCUS consist of 4K database pages."
+	},
+	"HTML": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE PCHOLD AS ${1:filename} FORMAT HTML",
+			"$0"
+		],
+		"description": " (.htm, .html) Supports hyperlinks and other web-based features. Retains StyleSheet formatting."
+	},
+	"HTMTABLE": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${2:filename} FORMAT HTMTABLE",
+			"$0"
+		],
+		"description": "(.htm, .html) To hold an html table for later use in an -HTMLFORM block. Supports hyperlinks and other web-based features. Retains StyleSheet formatting but also allows for the assignment of CSS Classes."
+	},
+	"PDF": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT PDF",
+			"$0"
+		],
+		"description": "(.pdf) Appearance of the scheduled output is preserved in an electronic document when printed using Adobe Acrobat or distributed to a printer that has an appropriate driver. Retains all relevant StyleSheet formatting. Suggested Uses: Email, printing, Report Library. Considerations: Does not support hyperlinks in email attachments. Recipient must have an Adobe Acrobat application to view."
+	},
+	"TAB and TABT": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT ${2|TAB,TABT|}",
+			"$0"
+		],
+		"description": "(.tab, .tsv, .txt) Scheduled output opens in tab-delimited format. For TABT, the format includes column headings in the first row. This format is required by certain software packages, such as Microsoft Access. Suggested Uses: Email, Report Library."
+	},
+	"SQLHYPG": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT SQLHYPG PERSISTENCE PERMANENT TABLENAME ${2:tableName} CONNECTION 'CON1'",
+			"$0"
+		],
+		"description": "(.tab, .tsv, .txt) Scheduled output opens in tab-delimited format. For TABT, the format includes column headings in the first row. This format is required by certain software packages, such as Microsoft Access. Suggested Uses: Email, Report Library."
+	},
+	"XFOCUS": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE HOLD AS ${1:filename} FORMAT XFOCUS ${2:INDEX} ",
+			"$0"
+		],
+		"description": "XFOCUS data sources with SUFFIX = XFOCUS consist of 16K database pages."
+	},
+	"XML": {
+		"scope": "focexec",
+		"prefix": "fmt",
+		"body": ["ON TABLE ${1|PCHOLD,HOLD|} AS ${2:filename} FORMAT XML",
+			"$0"
+		],
+		"description": "(.tab, .tsv, .txt) Scheduled output opens in tab-delimited format. For TABT, the format includes column headings in the first row. This format is required by certain software packages, such as Microsoft Access. Suggested Uses: Email, Report Library."
+	},
+
+
+	"SET CENT-ZERO": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": ["SET CENT-ZERO = ${1|ON,OFF|}",
+			"$0"
+		],
+		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
+	},
+	"SET PAGE-NUM": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": ["SET PAGE-NUM = ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}",
+			"$0"
+		],
+		"description": "Controls the numbering of output pages."
+	},
+	"SET HOLDLIST": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": ["SET HOLDLIST = ${1|ALL,ALLKEYS,PRINTONLY,EXPLICIT|}",
+			"$0"
+		],
+		"description": "Controls the numbering of output pages."
+	},
+
+
+
+	"ACROSSLINE": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET ACROSSLINE ${1|ON,OFF,SKIP|}",
+			"$0"
+		],
+		"description": "Controls underlining of column titles on report output."
+	},
+	"ASNAMES": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET ASNAMES ${1|FOCUS,ON,OFF,MIXED,FLIP,SUBST|}",
+			"$0"
+		],
+		"description": "Controls the FIELDNAME attribute in a HOLD Master File."
+	},
+	"BYDISPLAY": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET BYDISPLAY ${1|OFF,ON,OFF,BY,ACROSS,ALL|}",
+			"$0"
+		],
+		"description": "Controls Displaying All Vertical (BY) Sort Field Values."
+	},
+	"CENT-ZERO": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET CENT-ZERO ${1|ON,OFF|}",
+			"$0"
+		],
+		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
+	},
+	"DROPBLNKLINE": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET DROPBLNKLINE ${1|OFF,ON,BODY,HEADING,ALL|}",
+			"$0"
+		],
+		"description": "Eliminates blank lines from the report output."
+	},
+	"HOLDATTRS": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET HOLDATTRS ${1|FOCUS,CUBE,CUBE_STRUCTURED,OFF,ON|}",
+			"$0"
+		],
+		"description": "Determines the default format for HOLD files."
+	},
+	"HOLDFORMAT": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET HOLDFORMAT ${1|BINARY,ALPHA,DATREC,SQL_SCRIPT|}",
+			"$0"
+		],
+		"description": "Determines the default format for HOLD files."
+	},
+	"HOLDLIST": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET HOLDLIST ${1|ALL,ALLKEYS,EXPLICIT,NOFOCLIST,OLD,PRINTONLY|}",
+			"$0"
+		],
+		"description": "Determines the default format for HOLD files."
+	},
+	"NODATA": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET NODATA '${1:.}'",
+			"$0"
+		],
+		"description": "Character string display to indicate missing data in a report."
+	},
+	"PAGE-NUM": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET PAGE-NUM ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}",
+			"$0"
+		],
+		"description": "Controls the numbering of output pages."
+	},
+
+
+	"ABS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ABS(${1:number})"],
+		"description": "Calculates absolute value"
+	},
+	"ADMLEV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ADMLEV(${1:output_format})"],
+		"description": "Obtains the user's administrator level: 'S' - Server,  'A' - App, 'O' - Operator, 'B' - Basic."
+	},
+	"APINPATH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["APINPATH(${1:length}, ${2:appname}, ${3:output_format})"],
+		"description": "Find out if application is in application path"
+	},
+	"ARGLEN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ARGLEN(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Returns the length of a character string, excluding trailing blanks. Use combination of CHAR_LENGTH and RTRIM instead."
+	},
+	"ASCEBC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ASCEBC(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "ASCII -> EBCDIC translation"
+	},
+	"ASKYN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ASKYN(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7})"],
+		"description": "Dummy function"
+	},
+	"ASQ.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ASQ.${1:field}"],
+		"description": "Computes the average sum of squares for standard deviation in statistical analysis."
+	},
+	"ATODBL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ATODBL(${1:string}, ${2:length}, ${3:output_format})"],
+		"description": "Converts a character string to double-precision format. Use TO_NUMBER instead."
+	},
+	"AVE.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AVE.${1:field}"],
+		"description": "Computes the average value of the field."
+	},
+	"AVE.DST.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AVE.DST.${1:field}"],
+		"description": "Computes the average distinct value of the field."
+	},
+	"AYM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AYM(${1:indate}, ${2:months}, ${3:output_format})"],
+		"description": "Adds or subtracts months to or from Dates"
+	},
+	"AYMD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AYMD(${1:indate}, ${2:days}, ${3:output_format})"],
+		"description": "Adds or subtracts days to or from a date"
+	},
+	"AYMDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AYMDI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Add or subtract days to or from a date"
+	},
+	"AYMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["AYMI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Add or subtract months to or from dates"
+	},
+	"B64DECODE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["B64DECODE(${1:encoded_string}, ${2:output_format})"],
+		"description": "Decrypt the string"
+	},
+	"BAANHASH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BAANHASH(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9}, ${10:})"],
+		"description": ""
+	},
+	"BAR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BAR(${1:barlength}, ${2:infield}, ${3:maxvalue}, '${4:char}', ${5:output_format})"],
+		"description": "Produce a bar chart"
+	},
+	"BITSON": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BITSON(${1:bitnumber}, ${2:string}, ${3:output_format})"],
+		"description": "Determine if a bit is ON or OFF"
+	},
+	"BITVAL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BITVAL(${1:string}, ${2:startbit}, ${3:number}, ${4:output_format})"],
+		"description": "Evaluate a bit string as a binary integer"
+	},
+	"BNYSRC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BNYSRC(${1:arg1})"],
+		"description": "Get the number of FOR value"
+	},
+	"BYTVAL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["BYTVAL(${1:character}, ${2:output_format})"],
+		"description": "Translates a character to a decimal value"
+	},
+	"CALLDB2": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CALLDB2(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Invoke a user-written DB2 application"
+	},
+	"CALPRCNT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CALPRCNT(${1:percent}, ${2:populations}, ${3:output_format})"],
+		"description": "Stratified sampling with user defined percentages"
+	},
+	"CEILING": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CEILING(${1:number})"],
+		"description": "Returns the smallest integer value that is greater than or equal to a number. The output data type is the same as the input data type."
+	},
+	"CFGQRY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CFGQRY(${1:length}, ${2:conf_parm}, ${3:outlength}, ${4:output_format})"],
+		"description": "Returns the server configuration setting value"
+	},
+	"CHAR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHAR(${1:number_code})"],
+		"description": "Return the character based on the number code. NULL is returned if the number code is not in the range 0-255."
+	},
+	"CHAR_LENGTH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHAR_LENGTH(${1:string})"],
+		"description": "Returns the character length of source string."
+	},
+	"CHECKMD5": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHECKMD5(${1:data_buffer})"],
+		"description": "Compute MD5 hash check value of its input parameter and return the 128 bit value as an alphanumeric string in format A16. This can be used for equality search of the fields."
+	},
+	"CHECKPRIVS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHECKPRIVS(${1:user_priv_string}, ${2:output_format})"],
+		"description": "Checks user privilege status"
+	},
+	"CHECKSUM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHECKSUM(${1:buffer})"],
+		"description": "Compute a hash sum, called the checksum, as a whole number in format I11 of its input parameter. This can be used for equality search of the fields."
+	},
+	"CHGDAT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHGDAT('${1:in_display_option}', '${2:out_display_option}', ${3:date_string}, ${4:output_format})"],
+		"description": "Changes the format of a date"
+	},
+	"CHGDATI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHGDATI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5})"],
+		"description": "Change the format of a date"
+	},
+	"CHKFMT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHKFMT(${1:length}, ${2:string}, '${3:mask}', ${4:output_format})"],
+		"description": "Validation of a character string for the format"
+	},
+	"CHKNUM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHKNUM(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Validation of a character string for the numeric format"
+	},
+	"CHKPCK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CHKPCK(${1:length}, ${2:in_value}, ${3:error}, ${4:output_format})"],
+		"description": "Validate a packed field"
+	},
+	"CLSDDREC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CLSDDREC(${1:output_format})"],
+		"description": "Close all files opened by the PUTDDREC function"
+	},
+	"CMEMSG": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CMEMSG(${1:error_code}, ${2:arg_num}, ${3:arg1_length}, ${4:arg1}, ${5:arg2_length}, ${6:arg2}, ${7:arg3_length}, ${8:arg3}, ${9:outlength}, ${10:output_format})"],
+		"description": "Returns error message text"
+	},
+	"CMENUM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CMENUM(${1:error_code})"],
+		"description": "Sets &FOCERRNUM variable"
+	},
+	"CNCTGRP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CNCTGRP(${1:output_format})"],
+		"description": "Retrieves the primary group ID of the connected user"
+	},
+	"CNCTUSR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CNCTUSR(${1:output_format})"],
+		"description": "Retrieves the ID of the connected user"
+	},
+	"CNT.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CNT.${1:field}"],
+		"description": "Counts the number of occurrences of the field."
+	},
+	"CNT.DST.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CNT.DST.${1:field}"],
+		"description": "Counts the number of distinct values within a field."
+	},
+	"CONCAT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CONCAT(${1:string_1}, ${2:string_2})"],
+		"description": "Concatenates two strings to form a single string."
+	},
+	"CTRAN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CTRAN(${1:length}, ${2:string}, ${3:decimal}, ${4:decvalue}, ${5:output_format})"],
+		"description": "Text modification, translate one character to another"
+	},
+	"CTRFLD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CTRFLD(${1:string}, ${2:length}, ${3:output_format})"],
+		"description": "Alignment of a character string, centered"
+	},
+	"CTRLCHAR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CTRLCHAR(${1:ctrl_char})"],
+		"description": "Return the nonprintable control character specific to the running platform."
+	},
+	"CURRPATH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CURRPATH(${1:outlength}, ${2:output_format})"],
+		"description": "Get the value of the environment variable PATH"
+	},
+	"CVTSTIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["CVTSTIME(${1:format_style}, ${2:in_field}, ${3:output_format})"],
+		"description": "Convert the 64-bit DEC standard date and time to a character string. It is generally used with GETSTIME. OpenVMS server only."
+	},
+	"DADMY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DADMY(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in day-month-year format"
+	},
+	"DADMYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DADMYI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in day-month-year format"
+	},
+	"DADYM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DADYM(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in day-year-month format"
+	},
+	"DADYMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DADYMI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in day-year-month format"
+	},
+	"DAMDY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAMDY(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in month-day-year format"
+	},
+	"DAMDYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAMDYI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in month-day-year format"
+	},
+	"DAMYD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAMYD(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in month-year-day format"
+	},
+	"DAMYDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAMYDI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in month-year-day format"
+	},
+	"DATEADD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEADD(${1:date}, '${2:component}', ${3:increment})"],
+		"description": "Adds or subtracts a date unit to or from a date. Use DTADD instead."
+	},
+	"DATEADDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEADDI(${1:date}, '${2:component}', ${3:increment})"],
+		"description": "Adds or subtracts a date unit to or from a date. Use DTADD instead."
+	},
+	"DATECVT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATECVT(${1:date}, '${2:in_format}', '${3:output_format}')"],
+		"description": "Converts the format of a date"
+	},
+	"DATECVTI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATECVTI(${1:date}, '${2:in_format}', '${3:output_format}')"],
+		"description": "Converts the format of a date"
+	},
+	"DATEDIF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEDIF(${1:start_date}, ${2:end_date}, '${3:component}')"],
+		"description": "Finds the difference between two dates. Use DTDIFF instead (for day only)."
+	},
+	"DATEDIFI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEDIFI(${1:start_date}, ${2:end_date}, '${3:component}')"],
+		"description": "Finds the difference between two dates. Use DTDIFF instead."
+	},
+	"DATEMOV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEMOV(${1:date}, '${2:move_point}')"],
+		"description": "Moves a date to a significant point. Use DTRUNC instead."
+	},
+	"DATEMOVI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATEMOVI(${1:date}, '${2:move_point}')"],
+		"description": "Moves a date to a significant point"
+	},
+	"DATETRAN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DATETRAN(${1:indate})"],
+		"description": "Formats date in an international format"
+	},
+	"DAYDM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAYDM(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in year-day-month format"
+	},
+	"DAYDMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAYDMI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in year-day-month format"
+	},
+	"DAYMD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAYMD(${1:indate}, ${2:output_format})"],
+		"description": "Converts a legacy date to an integer, in year-month-day format"
+	},
+	"DAYMDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DAYMDI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts a legacy date to an integer, in year-month-day format"
+	},
+	"DB_EXPR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DB_EXPR(${1:sql_expression})"],
+		"description": "Inserts sql_expression 'as-is' into the native SQL generated for a FOCUS language request."
+	},
+	"DB_INFILE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DB_INFILE(${1:lkp_mfd}, ${2:src_fld1}, ${3:lkp_fld1}, ${4:[src_fld2]}, ${5:[lkp_fld2]})"],
+		"description": "Returns true if the values for source columns are present in the lookup file."
+	},
+	"DB_LOOKUP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DB_LOOKUP(${1:lkp_mfd}, ${2:src_fld1}, ${3:lkp_fld1}, ${4:[src_fld2]}, ${5:[lkp_fld2]}  ${6:return_fld})"],
+		"description": "Retrieves a value from a lookup data source"
+	},
+	"DBLOOKUP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DBLOOKUP(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Internal Function"
+	},
+	"DCTRAN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DCTRAN(${1:length}, ${2:string}, ${3:decimal}, ${4:decvalue}, ${5:output_format})"],
+		"description": "Translates a single-byte or double-byte character within a character string to another character based on its decimal value."
+	},
+	"DECODE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DECODE(${1:code1}${2:result1}${3:code2}${4:result2}${5:[ELSE]}${6:[default]})"],
+		"description": "Decodes from a list of code/result values"
+	},
+	"DEDIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DEDIT(${1:length}, ${2:string}, ${3:mask_length}, '${4:mask}', ${5:output_format})"],
+		"description": "Extracts or adds characters within a string when server is configured to use a DBCS code page."
+	},
+	"DEFERID": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DEFERID(${1:output_format})"],
+		"description": "Get deferred ID"
+	},
+	"DEMOTRAN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DEMOTRAN(${1:key_name}, ${2:length}, ${3:language}, ${4:output_format})"],
+		"description": "Returns the multilingual sentences for the keyword in demotran.c"
+	},
+	"DEXPAVEI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DEXPAVEI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9})"],
+		"description": "Computes projection values of provided sort key field based on double exponential average method"
+	},
+	"DIGITS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DIGITS(${1:number}, ${2:out_length})"],
+		"description": "Evaluates numeric expression as a whole number with fraction truncated and returns last N digits of its absolute value in a character string with leading zeros."
+	},
+	"DMOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DMOD(${1:dividend}, ${2:divisor}, ${3:output_format})"],
+		"description": "Calculates the remainder from a division as a decimal number. Use MOD instead."
+	},
+	"DMY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DMY(${1:from_date}, ${2:to_date})"],
+		"description": "Calculates the difference between two dates in day-month-year format"
+	},
+	"DMYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DMYI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Calculates the difference between two dates in day-month-year format"
+	},
+	"DOWK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DOWK(${1:indate}, ${2:output_format})"],
+		"description": "Finds the day of the week"
+	},
+	"DOWKI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DOWKI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Find the day of the week"
+	},
+	"DOWKL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DOWKL(${1:indate}, ${2:output_format})"],
+		"description": "Finds the day of the week"
+	},
+	"DOWKLI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DOWKLI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Find the day of the week"
+	},
+	"DPART": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DPART(${1:date}, '${2:component}', ${3:output_format})"],
+		"description": "Retrieves a date component as a numeric value. Use DTPART instead."
+	},
+	"DSTBULK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DSTBULK(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9}, ${10:})"],
+		"description": "Maintain distribution lists"
+	},
+	"DSTMEM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DSTMEM(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9}, ${10:})"],
+		"description": "Maintain single distribution list members"
+	},
+	"DSTRIP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DSTRIP(${1:length}, ${2:string}, ${3:char}, ${4:output_format})"],
+		"description": "Removes all occurrences of a specific single-byte or double-byte character from a string."
+	},
+	"DSTRUN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DSTRUN(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9}, ${10:})"],
+		"description": "Immediately run a scheduled job"
+	},
+	"DSUBSTR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DSUBSTR(${1:length}, ${2:string}, ${3:start}, ${4:end}, ${5:sublength}, ${6:output_format})"],
+		"description": "Extracts a substring when server is configured to use a DBCS code page."
+	},
+	"DT_CURRENT_DATE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DT_CURRENT_DATE()"],
+		"description": "Return the datetime with the current date provided by the running platform in Date-Time format. The time portion of the datetime is set to zero."
+	},
+	"DT_CURRENT_DATETIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DT_CURRENT_DATETIME(${1:component})"],
+		"description": "Return the datetime with the current date and time provided by the running platform in Date-Time format with the time precision specified by function parameter."
+	},
+	"DT_CURRENT_TIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DT_CURRENT_TIME(${1:component})"],
+		"description": "Return the datetime with the current time provided by the running platform in Date-Time format with the time precision specified by function parameter. The date portion of the returned datetime is set to zero."
+	},
+	"DTADD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTADD(${1:date}, ${2:component}, ${3:increment})"],
+		"description": "Given the date in Standard Date or in Date-Time format, returns the new date after adding the specified number of components. The returned date format is the same as the input date format."
+	},
+	"DTDIFF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTDIFF(${1:end_date}, ${2:start_date}, ${3:component})"],
+		"description": "Given two dates in Standard Date or in Date-Time formats, returns the number of given component boundaries between the two dates. The returned value has the format Integer for calendar components, the Double Precision Floating Point format for time components."
+	},
+	"DTDMY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTDMY(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a day-month-year date"
+	},
+	"DTDMYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTDMYI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a day-month-year date"
+	},
+	"DTDYM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTDYM(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a day-year-month date"
+	},
+	"DTDYMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTDYMI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a day-year-month date"
+	},
+	"DTMDY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTMDY(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a month-day-year date"
+	},
+	"DTMDYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTMDYI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a month-day-year date"
+	},
+	"DTMYD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTMYD(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a month-year-day date"
+	},
+	"DTMYDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTMYDI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a month-year-day date"
+	},
+	"DTOG": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTOG(${1:arg1}, ${2:arg2})"],
+		"description": "Calls CVT$CONVERT_FLOAT to convert VAX D Floating point data to VAX G Floating point data"
+	},
+	"DTPART": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTPART(${1:date}, ${2:component})"],
+		"description": "Given the date in Standard Date or in Date-Time format, returns the number of components specified by the second parameter."
+	},
+	"DTRUNC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTRUNC(${1:date}, ${2:period})"],
+		"description": "Given the date in Standard Date or in Date-Time format, returns the date which is the first day of the date period encompassing the given date or datetime."
+	},
+	"DTYDM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTYDM(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a year-day-month date"
+	},
+	"DTYDMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTYDMI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a year-day-month date"
+	},
+	"DTYMD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTYMD(${1:number}, ${2:output_format})"],
+		"description": "Converts an integer to a year-month-day date"
+	},
+	"DTYMDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["DTYMDI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts an integer to a year-month-day date"
+	},
+	"EBCASC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EBCASC(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "EBCDIC -> ASCII translation"
+	},
+	"EDAUT1": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDAUT1(${1:arg1}, ${2:arg2})"],
+		"description": ""
+	},
+	"EDAYSI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDAYSI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": "Calculates number of elapsed days"
+	},
+	"EDIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT(${1:string_or_number}, '${2:mask}')"],
+		"description": "Text modification, extract or add characters"
+	},
+	"EDIT(char)": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT(char)(${1:char})"],
+		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
+	},
+	"EDIT(int)": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT(int)(${1:int})"],
+		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
+	},
+	"EDIT(pack)": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT(pack)(${1:pack})"],
+		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
+	},
+	"EDIT(real)": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT(real)(${1:real})"],
+		"description": "Converts the format of a field. Use TO_NUMBER/TO_INTEGER (for alpha argument), DIGITS(for integer argument) instead."
+	},
+	"EDIT2": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EDIT2(${1:in_value}, ${2:format})"],
+		"description": "Convert numeric data, a date or a datetime to a character string according to external format. The format has to be valid for given data."
+	},
+	"EMGPUT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EMGPUT(${1:error_code}, ${2:arg_num}, ${3:arg1_length}, ${4:arg1}, ${5:arg2_length}, ${6:arg2}, ${7:arg3_length}, ${8:arg3}, ${9:outlength}, ${10:output_format})"],
+		"description": "Copy Manager Error Message User Written Subroutine. The same as CMEMSG, but it does the message output."
+	},
+	"ENCRYPT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ENCRYPT(${1:password})"],
+		"description": "Encrypt password"
+	},
+	"EURHLD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EURHLD(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": "Called by TABLE"
+	},
+	"EURXCH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EURXCH(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9})"],
+		"description": "Returns currency exchange rate"
+	},
+	"EXP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXP(${1:power}, ${2:output_format})"],
+		"description": "Raise 'e' to the n-th power. Use EXPONENT instead."
+	},
+	"EXPAVEI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXPAVEI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": "Compute projection values of sort key field provided based on exponential average method"
+	},
+	"EXPN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXPN(${1:number})"],
+		"description": "Evaluate a number in scientific notation"
+	},
+	"EXPONENT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXPONENT(${1:power})"],
+		"description": "Raises the base 'e' to the given power. The output data type is numeric."
+	},
+	"EXTDXD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXTDXD(${1:arg1}, ${2:arg2})"],
+		"description": "Dummy function"
+	},
+	"EXTDXF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXTDXF(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Internal DM function: unload internal MASTERs, remove temp USE entries"
+	},
+	"EXTDXI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["EXTDXI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": "User call to generate external index pointer."
+	},
+	"FERRMES": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FERRMES(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Prints an error message"
+	},
+	"FEXERR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FEXERR(${1:error}, ${2:output_format})"],
+		"description": "Retrieves an error message"
+	},
+	"FGETENV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FGETENV(${1:length}, '${2:varname}', ${3:outlength}, ${4:output_format})"],
+		"description": "Environment variable, retrieve the value. Use GETENV instead."
+	},
+	"FIND": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FIND(${1:field}${2:[AS dbfield]} IN${4:file})"],
+		"description": "Verify the existence of a value in an indexed field"
+	},
+	"FINDFOC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FINDFOC(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Determine if a file exists"
+	},
+	"FINDMEM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FINDMEM(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Find a member of a partitioned data set"
+	},
+	"FIQTR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FIQTR(${1:input_date}, ${2:loworder}, ${3:start_month}, ${4:start_day}, ${5:method}, ${6:output_format})"],
+		"description": "Extracts fiscal quarter"
+	},
+	"FIYR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FIYR(${1:input_date}, ${2:loworder}, ${3:start_month}, ${4:start_day}, ${5:method}, ${6:output_format})"],
+		"description": "Extracts fiscal year"
+	},
+	"FIYYQ": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FIYYQ(${1:input_date}, ${2:loworder}, ${3:start_month}, ${4:start_day}, ${5:method}, ${6:output_format})"],
+		"description": "Converts date to fiscal year-and-quarter format"
+	},
+	"FLOOR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FLOOR(${1:number})"],
+		"description": "Returns the largest integer value equal to or less than input number. The output data type is the same as the input data type."
+	},
+	"FMLCAP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMLCAP(${1:arg1})"],
+		"description": "Retrieves captions in an FML request"
+	},
+	"FMLFOR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMLFOR(${1:arg1})"],
+		"description": "Retrieves FML tag values"
+	},
+	"FMLINFO": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMLINFO(${1:arg1}, ${2:arg2})"],
+		"description": "Retain FOR Values in an FML Request"
+	},
+	"FMLLIST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMLLIST(${1:arg1}, ${2:arg2})"],
+		"description": "Retrieves an FML tag list"
+	},
+	"FMLLISTI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMLLISTI(${1:arg1}, ${2:arg2})"],
+		"description": "Retrieves an FML tag list"
+	},
+	"FMOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FMOD(${1:dividend}, ${2:divisor}, ${3:output_format})"],
+		"description": "Calculates the remainder from a division as a floating-point number. Use MOD instead."
+	},
+	"FORECAST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FORECAST(${1:infield}, ${2:increment}, ${3:npredict}, ${4:method}, ${5:npoints})"],
+		"description": "Calculate trends in numeric data and predict values beyond the range of those stored in the data source"
+	},
+	"FPRINT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FPRINT(${1:value}, '${2:out_format}', ${3:output_format})"],
+		"description": "Converts any type to alpha"
+	},
+	"FPUTENV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FPUTENV(${1:varname_length}, '${2:varname}', ${3:value_length}, ${4:value}, ${5:output_format})"],
+		"description": "Environment variable, assign the value. Use PUTENV instead."
+	},
+	"FST.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FST.${1:field}"],
+		"description": "Generates the first physical instance of the field."
+	},
+	"FTOA": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FTOA(${1:number})"],
+		"description": "Converts a number to alpha format"
+	},
+	"FUSEMENU": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["FUSEMENU(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Dummy function"
+	},
+	"GEADMIN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GEADMIN(${1:output_format})"],
+		"description": "Obtains effective server administrator"
+	},
+	"GETCOOKI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETCOOKI(${1:cookie_name}, ${2:output_format})"],
+		"description": "Retrieve the value in the Cookie"
+	},
+	"GETENV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETENV(${1:var_name})"],
+		"description": "Environment variable, retrieve the value"
+	},
+	"GETFPATH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETFPATH(${1:filename_length}, ${2:filename}, ${3:filetype_length}, ${4:filetype}, ${5:outlength}, ${6:output_format})"],
+		"description": "Retrieves search path for a file"
+	},
+	"GETHEADR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETHEADR(${1:header_name}, ${2:output_format})"],
+		"description": "Retrieves HTTP header parameter"
+	},
+	"GETLICENSETOKEN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETLICENSETOKEN()"],
+		"description": "Retrieve server license tokens"
+	},
+	"GETPDS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETPDS(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Determine if a PDS member exists"
+	},
+	"GETSTIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETSTIME(${1:output_format})"],
+		"description": "Extract the current 64-bit DEC standard date from the system. OpenVMS server only."
+	},
+	"GETTOK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETTOK(${1:string}, ${2:length}, ${3:number}, '${4:delimiter}', ${5:outlength}, ${6:output_format})"],
+		"description": "Extracts a token from a string. Use TOKEN instead."
+	},
+	"GETURL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETURL(${1:outlength}, ${2:output_format})"],
+		"description": "Retrieves URL"
+	},
+	"GETUSER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GETUSER(${1:output_format})"],
+		"description": "Retrieves the user ID running the data agent process"
+	},
+	"GIS_DISTANCE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_DISTANCE(${1:geo_point1}, ${2:geo_point2})"],
+		"description": "Uses GIS service to calculate distance between provided geometry points"
+	},
+	"GIS_DRIVE_ROUTE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_DRIVE_ROUTE(${1:geo_start_point}, ${2:geo_end_point})"],
+		"description": "Uses GIS service to calculate driving route between provided geometry points"
+	},
+	"GIS_GEOCODE_ADDR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_GEOCODE_ADDR(${1:address}, ${2:country})"],
+		"description": "Uses GIS geocoding service to obtain geometry point for provided complete address"
+	},
+	"GIS_GEOCODE_ADDR_CITY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_GEOCODE_ADDR_CITY(${1:street_address}, ${2:city}, ${3:state}, ${4:country})"],
+		"description": "Uses GIS geocoding service to obtain geometry point for provided address line, city, state and country"
+	},
+	"GIS_GEOCODE_ADDR_POSTAL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_GEOCODE_ADDR_POSTAL(${1:street_address}, ${2:postal_code}, ${3:country})"],
+		"description": "Uses GIS geocoding service to obtain geometry point for provided address line, postal code and country"
+	},
+	"GIS_GEOMETRY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_GEOMETRY(${1:geotype}, ${2:wkid}, ${3:geometry})"],
+		"description": "Builds a JSON Geometry object with the provided geometry type, WKID and geometry"
+	},
+	"GIS_IN_POLYGON": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_IN_POLYGON(${1:point}, ${2:Polygon_definition})"],
+		"description": "Determines whether a point is inside a complex polygon."
+	},
+	"GIS_LINE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_LINE(${1:geometry1}, ${2:geometry2})"],
+		"description": "Builds a JSON line defining Geometry object with the provided point or line"
+	},
+	"GIS_POINT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_POINT(${1:wkid}, ${2:longitude}, ${3:latitude})"],
+		"description": "Builds a JSON point defining Geometry object with the provided WKID, longitude and latitude"
+	},
+	"GIS_SERV_AREA_XY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_SERV_AREA_XY(${1:longitude}, ${2:latitude}, ${3:distance}, ${4:travel_mode[}, ${5:wkid]})"],
+		"description": "Uses GIS service to calculate geometry area with access boundaries within the given time/distance from the provided coordinate"
+	},
+	"GIS_SERVICE_AREA": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GIS_SERVICE_AREA(${1:geo_point}, ${2:distance}, ${3:travel_mode})"],
+		"description": "Uses GIS service to calculate geometry area with access boundaries within the given time/distance from the provided geometry point"
+	},
+	"GRECTYPE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GRECTYPE(${1:output_format})"],
+		"description": "Determines last record type of IDoc record: EDI_DC40.Tabnam or EDI_DD40.Segnam"
+	},
+	"GREGDT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GREGDT(${1:indate}, ${2:output_format})"],
+		"description": "Converts from Julian to Gregorian format"
+	},
+	"GREGDTI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GREGDTI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts from Julian to Gregorian format"
+	},
+	"GRPLIST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GRPLIST(${1:outlength}, ${2:output_format})"],
+		"description": "Retrieves group list for a connected user"
+	},
+	"GTOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["GTOD(${1:arg1}, ${2:arg2})"],
+		"description": "Calls CVT$CONVERT_FLOAT to convert VAX G Floating point data to VAX D Floating point data"
+	},
+	"HADD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HADD(${1:datetime}, '${2:component}', ${3:increment}, ${4:length}, ${5:output_format})"],
+		"description": "Increment a date-time value. Use DTADD instead."
+	},
+	"HCNVRT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HCNVRT(${1:datetime})"],
+		"description": "Converts a date-time value to alpha format"
+	},
+	"HDATE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HDATE(${1:datetime}, ${2:output_format})"],
+		"description": "Converts the date portion of a date-time value to a date format"
+	},
+	"HDIFF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HDIFF(${1:end_datetime}, ${2:start_datetime}, '${3:component}', ${4:output_format})"],
+		"description": "Find the number of units between two date-time values. Use DTDIFF instead."
+	},
+	"HDTTM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HDTTM(${1:date}, ${2:length}, ${3:output_format})"],
+		"description": "Converts a date to a date-time value"
+	},
+	"HEXBYT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HEXBYT(${1:decimal}, ${2:output_format})"],
+		"description": "Converts a decimal value to a character"
+	},
+	"HEXTR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HEXTR(${1:source}, '${2:componentstring}', ${3:length}, ${4:output_format})"],
+		"description": "Extracts multiple components from a date-time value"
+	},
+	"HEXTYPE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HEXTYPE(${1:in_value})"],
+		"description": "Return the hexadecimal view of input value."
+	},
+	"HGETC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HGETC(${1:length}, ${2:output_format})"],
+		"description": "Store the current local date and time as a date-time value. Use DT_CURRENT_DATETIME instead."
+	},
+	"HGETZ": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HGETZ(${1:length}, ${2:output_format})"],
+		"description": "Store the current universal date and time as a date-time value"
+	},
+	"HHMMSS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HHMMSS(${1:output_format})"],
+		"description": "Retrieves the current time"
+	},
+	"HHMS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HHMS(${1:datetime}, ${2:length}, ${3:output_format})"],
+		"description": "Converts a date-time value to a time value"
+	},
+	"HINPUT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HINPUT(${1:source_length}, ${2:string}, ${3:datetime_length}, ${4:output_format})"],
+		"description": "Converts a character string to a date-time value"
+	},
+	"HMASK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HMASK(${1:source}, '${2:componentstring}', ${3:input}, ${4:length}, ${5:output_format})"],
+		"description": "Move multiple date-time components to a target date-time field"
+	},
+	"HMIDNT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HMIDNT(${1:datetime}, ${2:length}, ${3:output_format})"],
+		"description": "Set the time portion of a date-time value to midnight"
+	},
+	"HNAME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HNAME(${1:datetime}, '${2:component}', ${3:output_format})"],
+		"description": "Retrieves date or time component as character string"
+	},
+	"HPART": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HPART(${1:datetime}, '${2:component}', ${3:output_format})"],
+		"description": "Retrieves date or time component as a numeric value. Use DTPART instead."
+	},
+	"HSETPT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HSETPT(${1:datetime}, '${2:component}', ${3:value}, ${4:length}, ${5:output_format})"],
+		"description": "Inserts a component into a date-time value"
+	},
+	"HTIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HTIME(${1:length}, ${2:datetime}, ${3:output_format})"],
+		"description": "Converts the time portion of a date-time value to a number"
+	},
+	"HTMTOTS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HTMTOTS(${1:time}, ${2:length}, ${3:output_format})"],
+		"description": "Converts a time to a date-time value"
+	},
+	"HYYWD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["HYYWD(${1:datetime}, ${2:output_format})"],
+		"description": "Returns the year and week number from a date-time value"
+	},
+	"IBIRCP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["IBIRCP(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9})"],
+		"description": ""
+	},
+	"IF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["IF(${1:cond1} THEN ${3:result1}, ${4:[ELSE IF]}, ${5:[condn]}, ${6:[THEN]}, ${7:[resultn]}, ${8:[ELSE]}, ${9:[else_exp]})"],
+		"description": "The IF-THEN-ELSE expression evaluates a set of conditions to determine the result."
+	},
+	"IMOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["IMOD(${1:dividend}, ${2:divisor}, ${3:output_format})"],
+		"description": "Calculates the remainder from a division as an integer. Use MOD instead."
+	},
+	"INT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["INT(${1:number})"],
+		"description": "Returns integer part of number"
+	},
+	"ISADMIN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ISADMIN(${1:output_format})"],
+		"description": "Finds out if the user is a Server Administrator: 'Y' or 'N'"
+	},
+	"ITONUM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ITONUM(${1:maxbytes}, ${2:infield}, ${3:output_format})"],
+		"description": "Converts a large number from integer to double-precision format"
+	},
+	"ITOPACK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ITOPACK(${1:maxbytes}, ${2:infield}, ${3:output_format})"],
+		"description": "Converts a large binary integer to packed-decimal format"
+	},
+	"ITOZ": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["ITOZ(${1:length}, ${2:in_value}, ${3:output_format})"],
+		"description": "Converts a number to zoned format"
+	},
+	"JDE_AN8": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDE_AN8(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDE_CO": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDE_CO(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDE_MCU": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDE_MCU(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDEAN8": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEAN8(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDECO": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDECO(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDEMCU": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEMCU(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": ""
+	},
+	"JDEX": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEX(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": ""
+	},
+	"JDEX6": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEX6(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": ""
+	},
+	"JDEY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEY(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": ""
+	},
+	"JDEYPC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEYPC(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6})"],
+		"description": ""
+	},
+	"JDEZPC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JDEZPC(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7})"],
+		"description": ""
+	},
+	"JOBNAME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JOBNAME(${1:outlength}, ${2:output_format})"],
+		"description": "Get job name string (string representation of current process id)"
+	},
+	"JPTRANS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JPTRANS('${1:conversion_type}', ${2:length}, ${3:string}, ${4:output_format})"],
+		"description": "Converts Japanese specific characters"
+	},
+	"JULDAT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JULDAT(${1:indate}, ${2:output_format})"],
+		"description": "Converts from Gregorian to Julian format"
+	},
+	"JULDATI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["JULDATI(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Converts from Gregorian to Julian format"
+	},
+	"KKFCUT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["KKFCUT(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "DBCS string truncation"
+	},
+	"LAST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LAST(${1:field})"],
+		"description": "Retrieves the preceding value of a field. Use PARTITION_REF(field, TABLE, -1) instead."
+	},
+	"LAST_NONBLANK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LAST_NONBLANK(${1:field})"],
+		"description": "Retrieve the last field value that is neither blank nor missing. If all previous values are either blank or missing, return missing value."
+	},
+	"LCWORD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LCWORD(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Casing, convert text to mixed case. The only uppercased letters are the first letter of each word and the letter after single or double quote."
+	},
+	"LCWORD2": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LCWORD2(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Casing, convert text to mixed case. The only uppercased letters are the first letter of each word and the letter after double quote."
+	},
+	"LCWORD3": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LCWORD3(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Casing, convert text to mixed case. The only uppercased letter is the first letter of each word."
+	},
+	"LENV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LENV(${1:string}, ${2:output_format})"],
+		"description": "Returns the length of a character string, including trailing blanks. Use CHAR_LENGTH instead."
+	},
+	"LIEN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LIEN(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:output_format})"],
+		"description": "License encoder"
+	},
+	"LIKE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LIKE()"],
+		"description": "Selects records similar to a specified mask"
+	},
+	"LJUST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LJUST(${1:upper_limit}, ${2:string}, ${3:output_format})"],
+		"description": "Alignment of a character string, left-justified. Use LTRIM instead."
+	},
+	"LOCASE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOCASE(${1:upper_limit}, ${2:string}, ${3:output_format})"],
+		"description": "Returns the character string with all letters lowercase. Use LOWER instead."
+	},
+	"LOCASV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOCASV(${1:upper_limit}, ${2:string}, ${3:output_format})"],
+		"description": "Returns the character string with all letters lowercase. Use LOWER instead."
+	},
+	"LOG": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOG(${1:number})"],
+		"description": "Calculates the natural logarithm"
+	},
+	"LOGOP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOGOP(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:output_format})"],
+		"description": "Perform logical AND/OR between two integers"
+	},
+	"LOOKUP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOOKUP(${1:field})"],
+		"description": "Retrieves a value from a cross-referenced data source"
+	},
+	"LOWER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LOWER(${1:string})"],
+		"description": "Returns the character string with all letters lowercase. The output data type is the same as the input data type."
+	},
+	"LPAD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LPAD(${1:string}, ${2:out_length}, ${3:pad_character})"],
+		"description": "Returns the out_length characters long left-padded character_string. The output data type is the same as the input data type."
+	},
+	"LST.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LST.${1:field}"],
+		"description": "Generates the last physical instance of the field."
+	},
+	"LTRIM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["LTRIM(${1:string})"],
+		"description": "Removes all blanks from the left end of character string."
+	},
+	"MAX": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MAX(${1:value1}, ${2:value2...})"],
+		"description": "Find the maximum value"
+	},
+	"MAX.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MAX.${1:field}"],
+		"description": "Generates the maximum value of the field."
+	},
+	"MDE.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MDE.${1:field}"],
+		"description": "Computes the mode of the field values."
+	},
+	"MDN.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MDN.${1:field}"],
+		"description": "Computes the median of the field values."
+	},
+	"MDY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MDY(${1:from_date}, ${2:to_date})"],
+		"description": "Calculates the difference between two dates in month-day-year format"
+	},
+	"MDYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MDYI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Calculates the difference between two dates in month-day-year format"
+	},
+	"MIN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MIN(${1:value1}, ${2:value2...})"],
+		"description": "Find the minimum value"
+	},
+	"MIN.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MIN.${1:field}"],
+		"description": "Generates the minimum value of the field."
+	},
+	"MIRR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MIRR(${1:cashflow}, ${2:finrate}, ${3:reinvrate}, ${4:output_format})"],
+		"description": "Calculates the modified internal rate of return"
+	},
+	"MLTREGI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MLTREGI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9})"],
+		"description": "Multi dimensional regression"
+	},
+	"MOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MOD(${1:dividend}, ${2:divisor})"],
+		"description": "Calculates the remainder from a division. Returns dividend if divisor is 0. The output data type is the same as the input data type."
+	},
+	"MODFN2": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MODFN2(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Internal FIND implementation"
+	},
+	"MOVAVEI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MOVAVEI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8})"],
+		"description": "Compute projection values of sort key field provided based on moving average method"
+	},
+	"MSOINFO": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MSOINFO(${1:arg1}, ${2:arg2})"],
+		"description": ""
+	},
+	"MSOWRIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MSOWRIT(${1:file_name}, ${2:output_format})"],
+		"description": "URL, write"
+	},
+	"MVSDYNAM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["MVSDYNAM(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Pass a DYNAM command to the Command Processor"
+	},
+	"NORMSDST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["NORMSDST(${1:value}, ${2:output_format})"],
+		"description": "Calculates the cumulative standard normal distribution function"
+	},
+	"NORMSINV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["NORMSINV(${1:value}, ${2:output_format})"],
+		"description": "Calculates the inverse cumulative standard normal distribution function"
+	},
+	"OVRLAY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["OVRLAY(${1:string}, ${2:length}, ${3:substring}, ${4:sublength}, ${5:position}, ${6:output_format})"],
+		"description": "Overlay a character string."
+	},
+	"PARAG": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PARAG(${1:length}, ${2:string}, '${3:delimiter}', ${4:max_token_size}, ${5:output_format})"],
+		"description": "Text formatting, divide text into smaller lines"
+	},
+	"PARTITION_AGGR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PARTITION_AGGR(${1:aggregation.field}, ${2:reset_key|TABLE}, ${3:lower}, ${4:upper}, ${5:post_aggregation})"],
+		"description": "Operations over groups of lines"
+	},
+	"PARTITION_REF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PARTITION_REF(${1:aggregation.field}, ${2:reset_key|TABLE}, - ${3:offset})"],
+		"description": "Retrieves the preceding value of a field"
+	},
+	"PATTERN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PATTERN(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Returns a character string that represents the pattern of the input"
+	},
+	"PCKOUT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PCKOUT(${1:in_value}, ${2:length}, ${3:output_format})"],
+		"description": "Write a packed number of variable length"
+	},
+	"PCT.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PCT.${1:field}"],
+		"description": "Computes a field percentage based on the total values for the field."
+	},
+	"PCT.CNT.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PCT.CNT.${1:field}"],
+		"description": "Computes a field percentage based on the number of instances found."
+	},
+	"PHONETIC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PHONETIC(${1:string})"],
+		"description": "Returns phonetic key of the string on success, or a null key on failure. The keys vary in length."
+	},
+	"POPEDIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POPEDIT(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Dummy function"
+	},
+	"POPFILE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POPFILE(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Dummy function"
+	},
+	"POSIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POSIT(${1:string}, ${2:length}, ${3:substring}, ${4:sublength}, ${5:output_format})"],
+		"description": "Returns the position of the first occurrence of a specified sample string in a source string. Use POSITION instead."
+	},
+	"POSITION": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POSITION(${1:pattern}, ${2:string})"],
+		"description": "Returns the position of the first occurrence of a specified sample string in a source string."
+	},
+	"POSITV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POSITV(${1:string}, ${2:upper_limit}, ${3:substring}, ${4:substring_limit}, ${5:output_format})"],
+		"description": "Returns the position of the first occurrence of a specified sample string in a variable length source string. Use POSITION instead."
+	},
+	"POWER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["POWER(${1:base}, ${2:power})"],
+		"description": "Returns the value of the specified numeric expression to the specified power."
+	},
+	"PRDNOR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PRDNOR(${1:seed}, ${2:output_format})"],
+		"description": "Generate reproducible random numbers, normally distributed with an arithmetic mean of 0 and a standard deviation of 1"
+	},
+	"PRDUNI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PRDUNI(${1:seed}, ${2:output_format})"],
+		"description": "Generate reproducible random numbers, uniformly distributed between 0 and 1"
+	},
+	"PTHDAT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PTHDAT(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Set ETL last command"
+	},
+	"PTOA": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PTOA(${1:number})"],
+		"description": "Converts a number to alpha format"
+	},
+	"PUTCOOKI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PUTCOOKI(${1:cookie_name}, ${2:output_format})"],
+		"description": "Sets the value in the Cookie"
+	},
+	"PUTDDREC": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PUTDDREC(${1:ddname}, ${2:dd_len}, ${3:record_string}, ${4:record_len}, ${5:output_format})"],
+		"description": "Write a character string as a record in a sequential file"
+	},
+	"PUTENV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["PUTENV(${1:var_name}, ${2:var_value})"],
+		"description": "Environment variable, assign the value"
+	},
+	"RDNORM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RDNORM(${1:output_format})"],
+		"description": "Generate random numbers, normally distributed with an arithmetic mean of 0 and a standard deviation of 1"
+	},
+	"RDUNIF": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RDUNIF(${1:output_format})"],
+		"description": "Generate random numbers, uniformly distributed between 0 and 1"
+	},
+	"REGEX": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REGEX(${1:string}, ${2:regular_expression})"],
+		"description": "Performs regular expression matching (compared with the simple pattern matching performed by LIKE). This condition evaluates input strings using the regular expression specified in the second parameter."
+	},
+	"REGEXI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REGEXI(${1:hidden_static_const}, ${2:string}, ${3:regular_expression})"],
+		"description": "Performs regular expression matching (compared with the simple pattern matching performed by LIKE). This condition evaluates input strings using the regular expression specified in the second parameter."
+	},
+	"REGRESS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REGRESS(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Compute values of sort key field provided based upon regression analysis"
+	},
+	"REGRESSI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REGRESSI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7})"],
+		"description": "Compute values of sort key field provided based upon regression analysis"
+	},
+	"REPLACE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REPLACE(${1:string}, ${2:pattern}, ${3:replacement})"],
+		"description": "Text modification. Replaces all instances of a pattern in an input string with the given replacement pattern, including a null replacement string."
+	},
+	"REVERSE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["REVERSE(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Reverse a character string"
+	},
+	"RJUST": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RJUST(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Alignment of a character string, right-justified. Use combination of LPAD and RTRIM instead."
+	},
+	"RNDSMPSZ": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RNDSMPSZ(${1:margin}, ${2:confidence}, ${3:errorrate}, ${4:population}, ${5:output_format})"],
+		"description": "Random sampling"
+	},
+	"RPAD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RPAD(${1:string}, ${2:out_length}, ${3:pad_character})"],
+		"description": "Returns the out_length characters long right-padded character_string. The output data type is the same as the input data type."
+	},
+	"RTCIVP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RTCIVP(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Sum numbers in the source_string after 'A'"
+	},
+	"RTRIM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["RTRIM(${1:string})"],
+		"description": "Removes all blanks from the right end of character string."
+	},
+	"SESSID": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SESSID(${1:output_format})"],
+		"description": "Get session id from NWH context."
+	},
+	"SETAUTH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SETAUTH(${1:error_code}, ${2:outlength}, ${3:output_format})"],
+		"description": "Set authentication code and primary group"
+	},
+	"SFTDEL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SFTDEL(${1:string}, ${2:length}, ${3:output_format})"],
+		"description": "Deletes the shift code from the DBCS data."
+	},
+	"SFTINS": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SFTINS(${1:string}, ${2:length}, ${3:output_format})"],
+		"description": "Adds the shift code to the DBCS data."
+	},
+	"SHORTMFD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SHORTMFD(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Get short MFD name"
+	},
+	"SLEEP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SLEEP(${1:delay}, ${2:output_format})"],
+		"description": "Suspend execution for a specified number of seconds"
+	},
+	"SOUNDEX": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SOUNDEX(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Compares character strings phonetically"
+	},
+	"SPAWN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SPAWN(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Create a subprocess from a procedure"
+	},
+	"SPELLNM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SPELLNM(${1:outlength}, ${2:number}, ${3:output_format})"],
+		"description": "Spells out a dollar amount"
+	},
+	"SPLIT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SPLIT(${1:part}, ${2:string})"],
+		"description": "Retrieves a part from a string"
+	},
+	"SPLITI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SPLITI(${1:part}, ${2:string})"],
+		"description": "Internal for SPLIT."
+	},
+	"SQRT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SQRT(${1:number})"],
+		"description": "Calculates the square root"
+	},
+	"SQUEEZ": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SQUEEZ(${1:length}, ${2:string}, ${3:output_format})"],
+		"description": "Text formatting, reduce multiple spaces to a single space"
+	},
+	"STRIP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["STRIP(${1:length}, ${2:string}, ${3:char}, ${4:output_format})"],
+		"description": "Removes a character from a string. Use REPLACE instead."
+	},
+	"STRREP": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["STRREP(${1:inlength}, ${2:instring}, ${3:searchlength}, ${4:searchstring}, ${5:replength}, ${6:repstring}, ${7:outlength}, ${8:output_format})"],
+		"description": "Text modification, replace character strings. Use REPLACE instead."
+	},
+	"STRTSMPL": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["STRTSMPL(${1:margin}, ${2:confidence}, ${3:errorrates}, ${4:populations}, ${5:output_format})"],
+		"description": "Stratified sampling"
+	},
+	"SUBSTR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SUBSTR(${1:upper_limit}, ${2:string}, ${3:position}, ${4:end_position}, ${5:substring_limit}, ${6:output_format})"],
+		"description": "Extracts a substring from a source character string. Use SUBSTRING instead."
+	},
+	"SUBSTRING": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SUBSTRING(${1:string}, ${2:position}, ${3:length})"],
+		"description": "Extracts a substring from a source character string."
+	},
+	"SUBSTV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SUBSTV(${1:upper_limit}, ${2:string}, ${3:position}, ${4:substring_limit}, ${5:output_format})"],
+		"description": "Extracts a substring from a source variable length character string. Use SUBSTRING instead."
+	},
+	"SUM.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SUM.${1:field}"],
+		"description": "Sums the field values."
+	},
+	"SUM.DST.": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SUM.DST.${1:field}"],
+		"description": "Sums the field distinct values."
+	},
+	"SYSTEM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SYSTEM(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Calling a system program"
+	},
+	"SYSVAR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["SYSVAR(${1:arg1}, ${2:arg2}, ${3:output_format})"],
+		"description": "Read z/OS system variables"
+	},
+	"TEMPPATH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TEMPPATH(${1:outlength}, ${2:output_format})"],
+		"description": "Retrieves the physical directory name of the current agent process."
+	},
+	"TEXPAVEI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TEXPAVEI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4}, ${5:arg5}, ${6:arg6}, ${7:arg7}, ${8:arg8}, ${9:arg9}, ${10:})"],
+		"description": "Computes projection values of sort key field provided based on triple exponential average method"
+	},
+	"TO_INTEGER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TO_INTEGER(${1:string})"],
+		"description": "Convert a string to an integer value."
+	},
+	"TO_NUMBER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TO_NUMBER(${1:string})"],
+		"description": "Convert a string into the numeric format most appropriate to the context."
+	},
+	"TODAY": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TODAY(${1:output_format})"],
+		"description": "Returns the current date"
+	},
+	"TODAYI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TODAYI(${1:arg1}, ${2:arg2})"],
+		"description": "Returns the current date"
+	},
+	"TOKEN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TOKEN(${1:string}, ${2:delimiter}, ${3:number})"],
+		"description": "Extracts a token from a string."
+	},
+	"TRIM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TRIM(${1:trim_where}, ${2:string}, ${3:upper_limit}, ${4:pattern_string}, ${5:pattern_size_limit}, ${6:output_format})"],
+		"description": "Removes leading characters, trailing characters, or both from a character string. Use TRIM_ instead."
+	},
+	"TRIM_": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TRIM_(${1:where}, ${2:pattern}, ${3:string})"],
+		"description": "Removes leading characters, trailing characters, or both from a character string."
+	},
+	"TRIMV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TRIMV(${1:trim_where}, ${2:string}, ${3:upper_limit}, ${4:pattern}, ${5:pattern_limit}, ${6:output_format})"],
+		"description": "Removes leading characters, trailing characters, or both from a variable length character string. Use TRIM_ instead."
+	},
+	"TSCOMID": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TSCOMID(${1:output_format})"],
+		"description": "Get tscom id from NWH context"
+	},
+	"TSTOPACK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["TSTOPACK(${1:input_MS_timestamp}, ${2:output_format})"],
+		"description": "Converts a MS timestamp in hex notation to packed-decimal format"
+	},
+	"UFMT": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["UFMT(${1:in_value}, ${2:in_limit}, ${3:output_format})"],
+		"description": "Return the hexadecimal view of input value. For numeric values, the output depends on byte allocation for the given data type on the running platform."
+	},
+	"UPCASE": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["UPCASE(${1:upper_limit}, ${2:string}, ${3:output_format})"],
+		"description": "Returns the character string with all letters uppercase. Use UPPER instead."
+	},
+	"UPCASV": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["UPCASV(${1:upper_limit}, ${2:string}, ${3:output_format})"],
+		"description": "Returns the character string with all letters uppercase. Use UPPER instead."
+	},
+	"UPPER": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["UPPER(${1:string})"],
+		"description": "Returns the character string with all letters uppercase. The output data type is the same as the input data type."
+	},
+	"USERPATH": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["USERPATH(${1:outlength}, ${2:output_format})"],
+		"description": "Get the value of the EDAPATH"
+	},
+	"WINOPEN": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["WINOPEN(${1:arg1}, ${2:arg2}, ${3:arg3})"],
+		"description": "Dummy function"
+	},
+	"WRTSTIME": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["WRTSTIME(${1:format_style}, ${2:in_field}, ${3:output_format})"],
+		"description": "Convert the current date and time given in one of five input formats into a 8-byte standard DEC date and time format. OpenVMS server only."
+	},
+	"XIRR": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["XIRR(${1:cashflow}, ${2:dates}, ${3:guess}, ${4:maxiterations}, ${5:output_format})"],
+		"description": "Calculates the internal rate of return"
+	},
+	"XMLDECOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["XMLDECOD(${1:inlength}, ${2:instring}, ${3:outlength}, ${4:output_format})"],
+		"description": "Decodes string with XML characters"
+	},
+	"XMLENCOD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["XMLENCOD(${1:inlength}, ${2:instring}, ${3:opcode}, ${4:outlength}, ${5:output_format})"],
+		"description": "Encodes string with XML characters"
+	},
+	"XTPACK": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["XTPACK(${1:infield}, ${2:outlength}, ${3:outdec}, ${4:output_format})"],
+		"description": "Store packed values in an alpha field"
+	},
+	"YM": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["YM(${1:from_date}, ${2:to_date}, ${3:output_format})"],
+		"description": "Calculates elapsed months"
+	},
+	"YMD": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["YMD(${1:from_date}, ${2:to_date})"],
+		"description": "Calculates the difference between two dates in year-month-day format"
+	},
+	"YMDI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["YMDI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Calculates the difference between two dates in year-month-day format"
+	},
+	"YMI": {
+		"scope": "focexec",
+		"prefix": "wff",
+		"body": ["YMI(${1:arg1}, ${2:arg2}, ${3:arg3}, ${4:arg4})"],
+		"description": "Calculates elapsed months"
+	}
+
+}

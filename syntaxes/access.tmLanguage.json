@@ -1,0 +1,131 @@
+{
+	"name": "access",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include":"#variables"
+		},
+		{
+			"include": "#field-block"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": "((\\$).*$)",
+					"name": "comment.line.master"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "(?<!&)&{1,2}\\b(\\w+)(.EVAL)*\\b",
+					"name":"variable.name.other.focexec"
+				}
+			]
+		},
+		"field-block":{
+			"end" : "\\$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.separator.access"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#field-options"
+				}
+			]
+		},
+		"field-options":{
+			"end" : "\\,",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.terminator.rule.access"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{	
+					"match" : "\\b([\\s\\t\\n]*(SEGNAME|DATA_ORIGIN|DIRECTORY|NAME|EXTENSION|PICKUP|DISCARD|POLLING|TIMEOUT|CHKPT_FILE|DELIMITER|HEADER|TABLENAME|CONNECTION|KEY|KEYS|FIELD|AUTOINCREMENT|INDEX_NAME|INDEX_UNIQUE|INDEX_COLUMN|INDEX_ORDER|START|INCREMENT|WRITE|SERVER|KEYFLD|IXFLD|CARDINALITY|FOREIGN_KEY|FOREIGN_KEY_COLUMN|PRIMARY_KEY_TABLE|PRIMARY_KEY_COLUMN|GUI_PARAMS))\\b",
+					"name": "keyword.other.define.access"
+				},
+				{
+					"match" : "\\b([\\s\\t\\n]*(NO|YES|Y|N|ASC|DESC))\\b",
+					"name": "keyword.control.define.access"
+				},
+				{
+					"match":"\\b([0-9]{1,})\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.access"
+						}
+					},
+					"end": "\"|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.access"
+						}
+					},
+					"name": "string.quoted.double.access",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\\"]|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.access"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.access"
+						}
+					},
+					"end": "'|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.access"
+						}
+					},
+					"name": "string.quoted.single.access",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\']|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.access"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.acx"
+}

@@ -1,0 +1,282 @@
+{
+	"name": "master",
+	"patterns": [
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#variables"
+		},
+		{
+			"include": "#declare-block"
+		},
+		{
+			"include": "#define-block"
+		}
+	],
+	"repository": {
+		"comments": {
+			"patterns": [
+				{
+					"match": "((\\$).*$)",
+					"name": "comment.line.master"
+				},
+				{
+					"match": "((^-\\*).*$)",
+					"name": "comment.line.master"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"match": "(?<!&)&{1,2}\\b(\\w+)(.EVAL)*\\b",
+					"name":"variable.name.other.master"
+				}
+			]
+		},
+		"declare-block":{
+			"end" : "\\$",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.separator.master"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include":"define-block"
+				},
+				{
+					"include": "#declare-options"
+				}
+			]
+		},
+		"declare-options":{
+			"end" : "\\,",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.terminator.rule.master"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#declare-values"
+				},
+				{
+					"include": "#declare-keywords"
+				}				
+			]
+		},
+		"declare-keywords":{
+			"patterns":[
+				{
+					"match" : "[\\s\\t\\n]*\\b(FILE|FILENAME|SUFFIX|VARIABLE|PROMPT|DEFAULT|GROUP|MASTER|WHERE|ELEMENTS|ACCEPT|SEGNAME|MDI|OCCURS|TARGET_OF|MDIDATA|DIM|MAXVALUES|WITHIN|SEGSUF|REMARKS|LOCATION|DATA|DATASET|ACEEPT|ENCLOSURE|HELPMESSAGE|HEADER|FOLDER|DBASOURCE|DESCRIPTION|DESCRIPTION_ln|DESC|DESC_ln|BELONGS_TO_SEGMENT|TITLE|TITLE_ln|PRESERVESPACE|POSITION|RDELIMITER|IOTYPE|SEGMENT|SEGTYPE|PARENT|CRFILE|CRJOINTYPE|JOIN_WHERE|CRSEGNAME|CRKEY|FIELD|FIELDNAME|ALIAS|USAGE|ACTUAL|FORMAT|MISSING|ACCESS|FIELDTYPE|INDEX|END|DBA|PASS|ACCESS|RESTRICT|NAME|DBAFILE|VALUE|PUBNO|AUTHOR|TITLE|BINDING)\\b",
+					"name": "keyword.other.define.master"
+				}
+			]
+		},
+		"declare-values":{
+			"patterns": [
+				{
+					"match":"\\b(R|I|H|ON|OFF|ALL|NO|SQLSYB|DB2|VALUE|SQLMSS|COMT|COM|TAB|TABT|VSAM|VARIABLE|ISAM|DFIX|U|KU|KM|KL|DKU|DKM|KLU|SYSTEM|FIX|FOC|FOCUS|XFOCUS|INNER|LEFT_OUTER|STREAM)\\b",
+					"name":"keyword.control.define.master"
+				},
+				{
+					"include": "#formats"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#conditions"
+				}
+			]
+		},
+		"formats" : {
+			"patterns":[
+				{
+					"match":"\\b(A[0-9]{1,}(B|V)*)\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"match":"\\b(TX[0-9]*)\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"match":"\\b(I[0-9]{1,}(C|S)*)\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"match":"\\b((D|P|F)[0-9]{1,}[.0-9]*(S|M|N|B|C)*)\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"match":"\\b(DATE|YYMD|MDYY|YMD|A4MD|HYYMDs|HYYMDm|HHISsm|A8YYMD|I8YYMD|A8MDYY|I8MDYY|I6MDY|I6YYM|I6YMTD|I6YMD|QYY|MYY|AUTODATE)\\b",
+					"name": "constant.numeric.master"
+				},
+				{
+					"match":"\\b((S|SH)[0-9]{1,})\\b",
+					"name": "keyword.control.define.master"
+				},
+				{
+					"inlcude":"#adapters"
+				},
+				{
+					"match":"=",
+					"name": "punctuation.separator.master" 
+				}
+			]
+		},
+		"adapters": {
+			"patterns": [
+				{
+					"match": "\\b(SQLMSS|SQLORA|SQLDB2|DB2|SQLSYB|COMT|COM|TAB|TABT|VSAM|VSAMX|STREAM|CISAM|ISAM|FIX|FOC|FOCUS|XFOCUS|DFIX|SQLODBC|XML|MYSQL|SOAP|SIBIN|SQLUV|SQLTRN|SQLUND|SQLDBC|BWBAPI|SQLMYSQL|SSAS|SQLBAS|SQLSAP|SQLING|EDA|RMS|SQLNEZ|SQLNUC|SFDC|SQLPARA|QRYI|SQLPRO|SQLPSTGR|SQLRDB|SQLRED|SQLPSQ|SQL1010|REST|SQLISM|ADBSINX|NATB|DATACOM|DBFILE|EJB|ESSBASE|SQLEXCEL|SQLGPD|SQLHYP|IDMSR|SQLIDMS|SQLINF|SQLIPX|IWAF|SQLMMX|SQLJDBC|JSON|LOTUS|SQLMAC|CPMILL|M204INX|DSM)\\b",
+					"name": "keyword.control.define.master"
+				},
+				{
+					"match":"\\b(R|I|H|ON|OFF|NO|VARIABLE|U|KU|KM|KL|DKU|DKM|KLU|INNER|LEFT_OUTER)\\b",					
+					"name":"keyword.control.define.master"
+				}
+			]
+		},
+		"define-block" : {
+			"begin" : "^[\\s\\t\\n]*\\b(DEFINE)\\b",
+			"beginCaptures": {
+				"0": {
+					"name": "keyword.other.define.master"
+				},
+				"1": {
+					"name": "keyword.other.define.master"
+				}
+			},
+			"end" : ";",
+			"endCapures" : {
+				"0":{
+					"name": "punctuation.separator.master"
+				}
+			},
+			"patterns" :[
+				{
+					"match": "\\bMISSING\\b",
+					"name": "keyword.other.define.master"
+				},
+				{
+					"include":"#comments"
+				},
+				{
+					"include":"#conditions"
+				}
+			]
+		},
+		"conditions":{
+			"patterns":[	
+				{
+					"match": "\\b(IF|ELSE|WHERE)\\b",
+					"name": "keyword.control.comparison.master"
+				},
+				{
+					"match": "\\b(EQ|NE|LE|LT|GE|GT|IN|IS|NOT|CONTAINS|LIKE|OR|AND|THEN)\\b",
+					"name": "keyword.control.comparison.master"
+				},
+				{
+					"match": "\\*",
+					"name": "keyword.other.unit.math.master"
+				},
+				{
+					"match": "[!<>]?=|<>|<|>",
+					"name": "keyword.control.comparison.master"
+				},
+				{
+					"match": "(-|\\+|/)",
+					"name": "keyword.other.unit.math.master"
+				},
+				{
+					"match": "\\|",
+					"name": "keyword.control.comparison.master"
+				},
+				{
+					"match": "\\|\\|",
+					"name": "keyword.control.comparison.master"
+				},
+				{
+					"include": "#formats"
+				},
+				{
+					"include": "#functions"
+				},
+				{
+					"include": "#strings"
+				}
+			]
+		},
+		"functions":{
+			"patterns": [
+				{
+					"match":"\\b(ARGLEN|ASIS|BITSON|BITVAL|BYTVAL|CHKFMT|CTRAN|CTRFLD|EDIT|GETTOK|LCWORD|LCWORD2|LCWORD3|LJUST|LOCASE|OVRLAY|PARAG|POSIT|REVERSE|RJUST|SOUNDEX|SPELLNM|SQUEEZ|STRIP|STRREP|SUBSTR|TRIM|UPCASE|LENV|LOCASV|POSITV|SUBSTV|TRIMV|UPCASV|CHAR_LENGTH|DIGITS|LOWER|LPAD|LTRIM|POSITION|RPAD|RTRIM|SUBSTRING|TOKEN|TRIM_|UPPER|DCTRAN|DEDIT|DSTRIP|DSUBSTR|JPTRANS|CHAR2INT|INT2CHAR|LCWORD|LCWORD2|LENGTH|LJUST|LOWER|MASK|MNTGETTOK|NLSCHR|OVRLAY|POSIT|RJUST|SELECTS|STRAN|STRCMP|STRICMP|STRNCMP|SUBSTR|TRIM|TRIMLEN|UPCASE|DB_EXPR|DB_INFILE|DB_LOOKUP|DECODE|FIND|LAST|LOOKUP|DATEADD|DATECVT|DATEDIF|DATEMOV|DATETRAN|DPART|FIYR|FIQTR|FIYYQ|HMASK|TODAY|AYM|AYMD|CHGDAT|DA|DMY|MDY|YMD|DOWK|DOWKL|DT|GREGDT|JULDAT|YM|CVTSTIME|GETSTIME|HADD|HCNVRT|HDATE|HDIFF|HDTTM|HEXTR|HGETC|HMASK|HHMMSS|HINPUT|HMIDNT|HNAME|HPART|HSETPT|HTIME|HTMTOTS|TIMETOTS|WRTSTIME|DTADD|DTDIFF|DTPART|DTRUNC|Initial_HHMMSS|Initial_TODAY|TODAY2|ADD|DAY|JULIAN|MONTH|QUARTER|SETMDY|SUB|WEEKDAY|YEAR|ATODBL|FPRINT|FTOA|HEXBYT|ITONUM|ITOPACK|ITOZ|PCKOUT|PTOA|TSTOPACK|UFMT|XTPACK|IWC.GetAppCGIValue|IWC.FindAppCGIValue|ABS|ASIS|BAR|CHKPCK|DMOD|FMOD|IMOD|EXP|EXPN|FMLINFO|FMLLIST|FMLFOR|FMLCAP|INT|LOG|MAX|MIN|MIRR|NORMSDST|NORMSINV|PRDNOR|PRDUNI|RDNORM|RDUNIF|SQRT|XIRR|IWCLink|IWCSwitchToSecure|IWCSwitchToUnsecure|IWCTrigger|CLSDDREC|FEXERR|FINDMEM|GETCOOKI|GETHEADR|GETPDS|GETUSER|MVSDYNAM|PUTCOOKI|PUTDDREC|SLEEP|SPAWN|SYSTEM|SYSVAR)\\b",
+					"name": "support.function.expression.master"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"begin": "\"",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.master"
+						}
+					},
+					"end": "\"|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.master"
+						}
+					},
+					"name": "string.quoted.double.master",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\\"]|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.master"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				},
+				{
+					"begin": "'",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.begin.master"
+						}
+					},
+					"end": "'|(?<!\\\\)(?=$|\\n)",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.string.end.master"
+						}
+					},
+					"name": "string.quoted.single.master",
+					"patterns": [
+						{
+							"begin": "(?:\\G|^)(?=(?:[^\\\\']|\\\\.)+$)",
+							"end": "$",
+							"name": "invalid.illegal.unclosed.string.master"
+						},
+						{
+							"include": "#variables"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.mas"
+}
