@@ -58,6 +58,10 @@ Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to
 
 ## Release Notes
 
+### 0.0.2
+
+Bug fixes
+
 ### 0.0.1
 
 Initial release (preview). 
