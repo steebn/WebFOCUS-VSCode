@@ -47,13 +47,15 @@ Please use the following [github link](https://github.com/steebn/WebFOCUS-VSCode
 
 ### 0.0.1
 
-Initial release. This in not yet published in the VS Code Extensions Market Place. To load this extension, you need to copy the files to your VS Code extensions folder .vscode/extensions. 
+Initial release (preview). 
+
+This has not yet been published in the VS Code Extensions Market Place. If you would like to preview this extension, you need to download this repository, unzip it and place the whole unzipped folder in your VS Code extensions folder .vscode/extensions. 
 
 Depending on your platform, it is located in the following folders:
 
-**Windows:** %USERPROFILE%\.vscode\extensions
-**macOS:** ~/.vscode/extensions
-**Linux:** ~/.vscode/extensions
+- **Windows:** %USERPROFILE%\.vscode\extensions
+- **macOS:** ~/.vscode/extensions
+- **Linux:** ~/.vscode/extensions
 
 ----------
  
