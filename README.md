@@ -56,23 +56,12 @@ In order to sync the changes made in VS Code to WebFOCUS, the following is requi
 
 Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to report any issues or to make any feature requests. 
 
-## Release Notes
+## Latest Release Notes
 
-### 0.0.2
+### 0.1.0
 
-Bug fixes
+Published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=steebn.webfocus)
 
-### 0.0.1
-
-Initial release (preview). 
-
-This has not yet been published in the VS Code Extensions Market Place. If you would like to preview this extension, you need to download this repository, unzip it and place the whole unzipped folder in your VS Code extensions folder .vscode/extensions. 
-
-Depending on your platform, it is located in the following folders:
-
-- **Windows:** %USERPROFILE%\.vscode\extensions
-- **macOS:** ~/.vscode/extensions
-- **Linux:** ~/.vscode/extensions
 
 ----------
  
