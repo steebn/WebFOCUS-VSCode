@@ -1,5 +1,7 @@
 # WebFOCUS for VSCode
 
+***Disclaimer**: This extension is neither created, maintained, nor endorsed by Information Builders. To learn more about the products WebFOCUS is used for, please visit: [https://www.informationbuilders.com/](https://www.informationbuilders.com/)*
+
 This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .sty, .mas, .acx) with syntax highlighting and code snippets. 
 
 *Please note that the features here are available as of WebFOCUS version 8202M. Some of the functions/features may not yet be available if you are using an older version of WebFOCUS.* 
@@ -10,25 +12,25 @@ This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .
  - Syntax highlighting
  - Snippets for:
  
-    - **Functions:** Type '**wff**' (**W**eb**F**ocus**F**unction) and get a list of all of the built in functions available
+    - **Functions:** Type '**wff**' (WebFocus Function) and get a list of all of the built in functions available
 
     ![Function snippet](images/Functions.gif)
 
-    - **ON TABLE SET:** Type '**ots**' (**O**n **T**able **S**et) *(currently a limited list)*
+    - **ON TABLE SET:** Type '**ots**' (On Table Set) *(currently a limited list)*
 
     ![ON TABLE SET snippet](images/OnTableSet.gif)   
 
-    - **Output Formats:** Type '**fmt**' (**f**or**m**a**t**)
+    - **Output Formats:** Type '**fmt**' (format)
 
     ![Format snippet](images/Format.gif)   
 
     - **Dialog Manager Commands:** Type '-[First Letter of DM Command]'  
 
-    - Different **FILE** actions: Type 'file'
+    - **Multiple *FILE* actions:** Type '**file**'
 
-    - **Tracing:** Type 'trace' *(currently only SQL Trace is available)*
+    - **Tracing:** Type '**trace**' *(currently only SQL Trace is available)*
 
-    - **WHENCE:** Type 'whence' for identifying file locations
+    - **WHENCE:** Type '**identify**' for identifying file locations
 
     - **Query Commands:** Type '**wf?**' for a list of (**?**) query commands
 

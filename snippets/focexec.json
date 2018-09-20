@@ -48,12 +48,48 @@
 	},
 	"WHENCE": {
 		"scope": "focexec",
-		"prefix": "WHENCE",
+		"prefix": "locate",
 		"body": ["WHENCE ${1:fileName} ${2|FOCEXEC,FOCUS,MASTER,ACCESS,FOCSTYLE|}"],
-		"description": "Identifying the Files Being Used"
+		"description": "Identify the file name and location of a procedure, data source, Master File, Access File, or StyleSheet. WebFOCUS searches on the path of the WebFOCUS Reporting Sever and identifies the file using the WHENCE command."
 	},
 
-
+	"SUM": {
+		"scope": "focexec",
+		"prefix": "SUM",
+		"body": ["SUM ${1:field} $0"],
+		"description": "The SUM command sums the values of a numeric field."
+	},
+	"COUNT": {
+		"scope": "focexec",
+		"prefix": "COUNT",
+		"body": ["COUNT ${1:field} $0"],
+		"description": "The COUNT command counts the number of instances that exist for a specified field."
+	},
+	"PRINT": {
+		"scope": "focexec",
+		"prefix": "PRINT",
+		"body": ["PRINT ${1:field} $0"],
+		"description": "The PRINT command lists the individual values of the fields you specify in your report request. PRINT does not number the items."
+	},
+	"LIST": {
+		"scope": "focexec",
+		"prefix": "LIST",
+		"body": ["LIST ${1:field} $0"],
+		"description": "The LIST command lists the individual values of the fields you specify in your report request. LIST numbers the items in the report."
+	},
+	"RANKED": {
+		"scope": "focexec",
+		"prefix": "RANKED",
+		"body": ["RANKED${1: AS '${2:name}'}${3: BY ${4|HIGHEST,LOWEST|} ${5:n} }${6:sortfield}${7: AS '${8:name}'}",
+			"$0" ],
+		"description": "The LIST command lists the individual values of the fields you specify in your report request. LIST numbers the items in the report."
+	},
+	"COMPUTE": {	
+		"scope": "focexec",
+		"prefix": "COMPUTE",
+		"body": ["COMPUTE ${1:virtualFieldName}/${2:format}${3:length} ${4:MISSING ${5|OFF,ON,ON ALL|}} = $0"],
+		"description": "The LIST command lists the individual values of the fields you specify in your report request. LIST numbers the items in the report."
+	},
 	"? COMBINE": {
 		"scope": "focexec",
 		"prefix": "wf?",
