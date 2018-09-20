@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "webfocus" extension will be documented in this file.
 
+### 0.2.3
+
+Updated the Icon
+
 ### 0.2.2
 
 Flagging as 'Preview'

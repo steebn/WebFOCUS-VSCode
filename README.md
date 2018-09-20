@@ -58,6 +58,6 @@ Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to
 
 ## Release Notes
 
-Releases Notes can be found in the [changelog](https://marketplace.visualstudio.com/items/steebn.webfocus/changelog).
+Releases Notes can be found in the [changelog](https://github.com/steebn/WebFOCUS-VSCode/blob/master/CHANGELOG.md).
  
 ----------
