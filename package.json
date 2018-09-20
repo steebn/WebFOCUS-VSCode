@@ -1,7 +1,7 @@
 {
     "name": "webfocus",
     "displayName": "WebFOCUS",
-    "description": "Provides language support for WebFOCUS.",
+    "description": "Provides language support for WebFOCUS",
     "version": "0.2.3",
     "preview": true,
     "publisher": "steebn",
@@ -10,9 +10,9 @@
         "url": "https://github.com/steebn"
     },
     "license": "MIT",
-    "icon": "images/WebFOCUS_logo_400x400.png",
+    "icon": "images/web_.png",
     "galleryBanner": {
-        "color": "#505050",
+        "color": "#A4A4A4",
         "theme": "dark"
     },
     "homepage": "https://github.com/steebn/WebFOCUS-VSCode",
