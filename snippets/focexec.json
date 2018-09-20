@@ -530,6 +530,15 @@
 		],
 		"description": "Controls the numbering of output pages."
 	},
+	"STYLE": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": ["ON TABLE SET STYLE *",
+			"$0",
+			"ENDSTYLE"
+		],
+		"description": "Controls the numbering of output pages."
+	},
 
 
 	"ABS": {

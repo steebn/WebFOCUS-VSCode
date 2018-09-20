@@ -2,7 +2,9 @@ TABLE FILE car
 RANKED AS 'name' BY LOWEST n sortfield
 COMPUTE virtualFieldName/formatlength MISSING ON = wff
 
+ON TABLE SET STYLE *
 
+ENDSTYLE
 
 
 
