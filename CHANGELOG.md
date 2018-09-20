@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
-### 0.2.4
+### 0.3.0
 
 - Removed the WebFOCUS icon pending permission to use. Replaced with a creative commons licensed BI Logo 
 
