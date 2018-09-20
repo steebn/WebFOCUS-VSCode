@@ -10,9 +10,9 @@
         "url": "https://github.com/steebn"
     },
     "license": "MIT",
-    "icon": "images/web_analytics.png",
+    "icon": "images/website_dashboard.png",
     "galleryBanner": {
-        "color": "#A4A4A4",
+        "color": "#24292e",
         "theme": "dark"
     },
     "homepage": "https://github.com/steebn/WebFOCUS-VSCode",

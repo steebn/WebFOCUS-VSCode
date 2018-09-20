@@ -30,7 +30,7 @@ This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .
 
     - **Tracing:** Type '**trace**' *(currently only SQL Trace is available)*
 
-    - **WHENCE:** Type '**identify**' for identifying file locations
+    - **WHENCE:** Type '**locate**' for identifying file locations
 
     - **Query Commands:** Type '**wf?**' for a list of (**?**) query commands
 

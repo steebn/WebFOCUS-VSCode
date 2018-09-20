@@ -1,13 +1,21 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.3.1
+
+- Correction to the README.md file for the WHENCE prefix. Now has the correct prefix of 'locate' 
+
+- Icon update
+
+- Removed duplicate entry in the changelog for v0.2.3
+
 ### 0.3.0
 
 - Removed the WebFOCUS icon pending permission to use. Replaced with a creative commons licensed BI Logo 
 
 - Added disclaimer to the README.md 
 
-- Changed the prefix for the WHENCE snippet to 'locate' as to not to bring up the snippet everytime that you are typing a WHERE filter.
+- Changed the prefix for the WHENCE snippet to 'locate' as to not to bring up the snippet everytime that you are typing a WHERE filter
 
 ### 0.2.3
 
