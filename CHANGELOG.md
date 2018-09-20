@@ -13,10 +13,6 @@ All notable changes to the "webfocus" extension.
 
 Updated the Icon
 
-### 0.2.3
-
-Updated the Icon
-
 ### 0.2.2
 
 Flagging as 'Preview'
