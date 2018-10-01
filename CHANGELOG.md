@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.1
+
+- Dependencies update
+
 ### 0.4.0
 - Added HTML syntax highlighting for -HTMLFORM blocks
 
