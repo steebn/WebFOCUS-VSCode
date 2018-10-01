@@ -1,12 +1,141 @@
+-********************************************************************************
+-* Styling HTMLFORM block
+-********************************************************************************
+
+-HTMLFORM BEGIN NOEVAL
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            color: #d16969;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+-HTMLFORM END
+
+-********************************************************************************
+-* Styling: Style attributes
+-********************************************************************************
 TABLE FILE car
-RANKED AS 'name' BY LOWEST n sortfield
-COMPUTE virtualFieldName/formatlength MISSING ON = wff
-
+SUM SALES
+BY COUNTRY
+BY CAR
 ON TABLE SET STYLE *
-
+TYPE=REPORT, GRID=OFF, LINES-PER-PAGE=UNLIMITED, $
+TYPE=DATA, COLUMN=COUNTRY, FONT=ARIAL, $
 ENDSTYLE
+END
+-********************************************************************************
+-* Styling: SET Commands
+-********************************************************************************
+SET ASNAMES     =       OFF 
+SET BYDISPLAY=ON
+SET PAGE-NUM=NOPAGE
 
 
+ENGINE SQLMSS SET CONNECTION_ATTRIBUTES CON2
+
+-********************************************************************************
+-* Styling: SET and DEFAULT Variables
+-********************************************************************************
+-DEFAULT &TABLE = car ;
+-DEFAULT &VERBOSE = N ;
+-SET &VERBOSEWHENCE = IF &VERBOSE EQ N THEN '-* WHENCE' ELSE 'WHENCE' ;
+-SET &VERBOSETYPE = IF &VERBOSE EQ N THEN '-*' ELSE '-TYPE' ;
+-SET &VERBOSEECHO = IF &VERBOSE EQ N THEN '-*' ELSE '-SET &ECHO = ALL ;' ;
+-SET &GFORMAT  =IF &FORMAT EQ 'PDF' THEN 'SVG'   ELSE &FORMAT ;
+
+-* This is accepted in FOCUS but the styling doesnt recognize since there is no &
+-DEFAULT FORMAT = PDF
+&VERBOSEECHO.EVAL
+&VERBOSEWHENCE.EVAL &CMAPP/&TABLE MASTER
+&VERBOSEWHENCE.EVAL &CMAPP/&TABLE FOCUS
 
 
-END 
+-********************************************************************************
+-* Styling: Dialogue Manager Commands
+-********************************************************************************
+-IF &TABLE.EXISTS THEN GOTO SKIPPED;
+
+-* Labels are not Color coded for now. 
+-SKIPPED
+
+-* Verify that only the TYPE and Variables are formatted.
+-TYPE Application Name IS &APPNAME
+
+
+-INCLUDE &INCLVAR
+-INCLUDE DUMMYFILE
+&SKIPINCL.EVAL-INCLUDE DUMMYFILE2
+
+
+-********************************************************************************
+-* Styling: TABLE Data and Formatting
+-********************************************************************************
+TABLE FILE &TABLE
+SUM DEALER_COST NOPRINT
+ON TABLE SET PAGE-NUM OFF
+ON TABLE SET STYLE *
+PAGESIZE=LETTER,$
+TYPE=REPORT,IMAGE=HOLD.SVG,$
+ENDSTYLE
+ON TABLE PCHOLD FORMAT PDF
+END
+-RUN
+
+
+-********************************************************************************
+-* Stying: GRAPH Commands
+-********************************************************************************
+GRAPH FILE &TABLE
+SUM DEALER_COST
+ACROSS MODEL
+ON GRAPH SET 3D OFF
+ON GRAPH SET BARNUMB OFF
+ON GRAPH SET GRID ON
+ON GRAPH SET GRAPHEDIT SERVER
+ON GRAPH SET VZERO ON
+ON GRAPH &HOLDTYPE AS HOLD FORMAT &GFORMAT
+END
+-RUN
+
+-********************************************************************************
+-* Styling: HTML5 Graphs
+-********************************************************************************
+GRAPH FILE filename 
+graph commands 
+ON GRAPH SET STYLE *
+*GRAPH_SCRIPT 
+API calls 
+*END
+*GRAPH_JS 
+JSON 
+*END
+WEBFOCUS StyleSheet commands 
+ENDSTYLE
+END
+
+-********************************************************************************
+-* Styling: MODIFY Commands
+-********************************************************************************
+MODIFY FILE CAR
+FIXFORM FROM HOLD
+MATCH CAR
+ON MATCH REJECT
+ON NOMATCH INCLUDE
+DATA ON HOLD
+END

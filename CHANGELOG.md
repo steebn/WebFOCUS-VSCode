@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.0
+- Added HTML syntax highlighting for -HTMLFORM blocks
+
+- Added in an ON TABLE SET STYLE * code block and started adding in styling snippets
+
+- Added in -QUIT snippet/highlighting
+
+- Added in some missing syntax highlighting.
+
+- Fixed DECODE snippet
+
 ### 0.3.1
 
 - Correction to the README.md file for the WHENCE prefix. Now has the correct prefix of 'locate' 

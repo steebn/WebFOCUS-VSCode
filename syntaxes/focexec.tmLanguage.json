@@ -9,10 +9,10 @@
 			"include": "#strings"
 		},
 		{
-			"include":"#numbers"
+			"include": "#numbers"
 		},
 		{
-			"include":"#htmlform"
+			"include": "#htmlform"
 		},
 		{
 			"include": "#properties"
@@ -21,27 +21,27 @@
 			"include": "#engines"
 		},
 		{
-			"include":"#dialoguemgr"
+			"include": "#dialoguemgr"
 		},
 		{
 			"include": "#variables"
 		},
 		{
-			"include":"#reporting"
+			"include": "#reporting"
 		},
 		{
 			"include": "#dialoguecond"
 		},
 		{
-			"include":"#conditions"
+			"include": "#conditions"
 		},
 		{
-			"include":"#modify"
+			"include": "#modify"
 		}
 	],
 	"repository": {
 		"dialoguemgr" :{
-			"begin": "(-(TYPE|RUN|INCLUDE|EXIT))\\b",
+			"begin": "(-(TYPE|RUN|INCLUDE|EXIT|QUIT))\\b",
 			"beginCaptures": {
 				"0": {
 					"name": "keyword.other.define.focexec"
@@ -56,7 +56,7 @@
 			"name": "meta.property-list.css",
 			"patterns": [
 				{
-					"include":"#variables"
+					"include": "#variables"
 				}
 			]
 		},
@@ -76,47 +76,51 @@
 			"name": "meta.property-list.css",
 			"patterns": [
 				{
-					"include":"#variables"
+					"include": "#variables"
 				},
 				{
-					"include":"#conditions"
+					"include": "#conditions"
 				},
 				{
 					"include": "#strings"
 				},
 				{
-					"include":"#numbers"
+					"include": "#numbers"
 				}
 			]
 		},
 		"formats" : {
 			"patterns":[
 				{
-					"match":"\\b(A[0-9]{1,}(B|V)*)\\b",
+					"match": "\\b(A[0-9]{1,}(B|V)*)\\b",
 					"name": "constant.numeric.focexec"
 				},
 				{
-					"match":"\\b(TX[0-9]*)\\b",
+					"match": "\\b(TX[0-9]*)\\b",
 					"name": "constant.numeric.focexec"
 				},
 				{
-					"match":"\\b(I[0-9]{1,}(C|S)*)\\b",
+					"match": "\\b(I[0-9]{1,}(C|S)*)\\b",
 					"name": "constant.numeric.focexec"
 				},
 				{
-					"match":"\\b((D|P|F)[0-9]{1,}[.0-9]*(S|M|N|B|C)*)\\b",
+					"match": "\\b((D|P|F)[0-9]{1,}[.0-9]*(S|M|N|B|C)*)\\b",
 					"name": "constant.numeric.focexec"
 				},
 				{
-					"match":"\\b(DATE|YYMD|MDYY|YMD|A4MD|HYYMDs|HYYMDm|HHISsm|A8YYMD|I8YYMD|A8MDYY|I8MDYY|I6MDY|I6YYM|I6YMTD|I6YMD|QYY|MYY|AUTODATE)\\b",
+					"match": "\\b(DATE|YYMD|MDYY|YMD|A4MD|HYYMDs|HYYMDm|HHISsm|A8YYMD|I8YYMD|A8MDYY|I8MDYY|I6MDY|I6YYM|I6YMTD|I6YMD|QYY|MYY|AUTODATE)\\b",
 					"name": "constant.numeric.focexec"
 				},
 				{
-					"match":"\\b((S|SH)[0-9]{1,})\\b",
+					"match": "\\b((S|SH)[0-9]{1,})\\b",
 					"name": "keyword.control.define.focexec"
 				},
 				{
-					"match":"=",
+					"match": "\\b((S|SH)[0-9]{1,})\\b",
+					"name": "keyword.control.define.focexec"
+				},
+				{
+					"match": "=",
 					"name": "punctuation.separator.focexec" 
 				}
 			]
@@ -137,7 +141,7 @@
 			"patterns": [
 				{
 					"match": "(?<!&)&{1,2}\\b(\\w+)\\b",
-					"name":"variable.name.other.focexec"
+					"name": "variable.name.other.focexec"
 				},	
 				{
 					"match": "(\\.)(EXISTS|TYPE|LENGTH|EVAL)\\b",
@@ -146,22 +150,22 @@
 			]
 		},
 		"htmlform": {
-			"begin" : "^-(HTMLFORM)\\b[\\s\\t\\n]{1,}\\b(BEGIN)\\b",
+			"begin" : "^-(HTMLFORM)\\b[\\s\\t\\n]{1,}\\b(BEGIN)\\b\\s?(NOEVAL)?",
 			"beginCaptures": {
 				"0": {
-					"name": "keyword.other.define.focexec"
+					"name": "constant.character.character-class.regexp.focexec"
 				},
-				"1": {
-					"name": "keyword.other.define.focexec"
+				"3": {
+					"name": "support.function.expression.focexec"
 				}
 			},
 			"end" : "^-(HTMLFORM)\\b[\\s\\t\\n]{1,}\\b(END)\\b",
 			"endCaptures": {
 				"0": {
-					"name": "keyword.other.define.focexec"
+					"name": "constant.character.character-class.regexp.focexec"
 				}
 			},
-			"name":"meta.function.define.focexec",
+			"name": "meta.function.define.focexec",
 			"patterns": [
 				{
 					"include": "#comments"
@@ -173,7 +177,10 @@
 					"include": "#strings"
 				},
 				{
-					"include":"#numbers"
+					"include": "#numbers"
+				},
+				{
+					"include": "text.html.basic"
 				}
 			]
 		},
@@ -221,18 +228,18 @@
 					"include": "#strings"
 				},
 				{
-					"include":"#numbers"
+					"include": "#numbers"
 				}
 			]
 		},
 		"functions":{
 			"patterns": [
 				{
-					"match":"\\b(ARGLEN|ASIS|BITSON|BITVAL|BYTVAL|CHKFMT|CTRAN|CTRFLD|EDIT|GETTOK|LCWORD|LCWORD2|LCWORD3|LJUST|LOCASE|OVRLAY|PARAG|POSIT|REVERSE|RJUST|SOUNDEX|SPELLNM|SQUEEZ|STRIP|STRREP|SUBSTR|TRIM|UPCASE|LENV|LOCASV|POSITV|SUBSTV|TRIMV|UPCASV|CHAR_LENGTH|DIGITS|LOWER|LPAD|LTRIM|POSITION|RPAD|RTRIM|SUBSTRING|TOKEN|TRIM_|UPPER|DCTRAN|DEDIT|DSTRIP|DSUBSTR|JPTRANS|CHAR2INT|INT2CHAR|LENGTH|MASK|MNTGETTOK|NLSCHR|SELECTS|STRAN|STRCMP|STRICMP|STRNCMP|TRIMLEN|DB_EXPR|DB_INFILE|DB_LOOKUP|DECODE|FIND|LAST|LOOKUP|DATEADD|DATECVT|DATEDIF|DATEMOV|DATETRAN|DPART|FIYR|FIQTR|FIYYQ|HMASK|TODAY|AYM|AYMD|CHGDAT|DA|DMY|MDY|YMD|DOWK|DOWKL|DT|GREGDT|JULDAT|YM|CVTSTIME|GETSTIME|HADD|HCNVRT|HDATE|HDIFF|HDTTM|HEXTR|HGETC|HHMMSS|HINPUT|HMIDNT|HNAME|HPART|HSETPT|HTIME|HTMTOTS|TIMETOTS|WRTSTIME|DTADD|DTDIFF|DTPART|DTRUNC|Initial_HHMMSS|Initial_TODAY|TODAY2|ADD|DAY|JULIAN|MONTH|QUARTER|SETMDY|SUB|WEEKDAY|YEAR|ATODBL|FPRINT|FTOA|HEXBYT|ITONUM|ITOPACK|ITOZ|PCKOUT|PTOA|TSTOPACK|UFMT|XTPACK|IWC.GetAppCGIValue|IWC.FindAppCGIValue|ABS|BAR|CHKPCK|DMOD|FMOD|IMOD|EXP|EXPN|FMLINFO|FMLLIST|FMLFOR|FMLCAP|INT|LOG|MAX|MIN|MIRR|NORMSDST|NORMSINV|PRDNOR|PRDUNI|RDNORM|RDUNIF|SQRT|XIRR|IWCLink|IWCSwitchToSecure|IWCSwitchToUnsecure|IWCTrigger|CLSDDREC|FEXERR|FINDMEM|GETCOOKI|GETHEADR|GETPDS|GETUSER|MVSDYNAM|PUTCOOKI|PUTDDREC|SLEEP|SPAWN|SYSTEM|SYSVAR|ASQ.|AVE|DST|CNT|CNT|FST|LST|MAX|MDE|MDN|MIN|PCT|PCT|SUM|SUM|PARTITION_AGGR|PARTITION_REF|CHKNUM|LIKE|PATTERN|XMLDECOD|XMLENCOD|KKFCUT|SFTDEL|SFTINS|CONCAT|LAST_NONBLANK|REGEX|REPLACE|SPLIT|PHONETIC|TO_INTEGER|TO_NUMBER|FORECAST|REGRESS|IF|DADMY|DADYM|DAMDY|DAMYD|DAYDM|DAYMD|DTDMY|DTDYM|DTMDY|DTMYD|DTYDM|DTYMD|HGETZ|HHMS|HYYWD|DT_CURRENT_DATE|DT_CURRENT_DATETIME|DT_CURRENT_TIME|CHAR|CTRLCHAR|EDIT(char)|EDIT(int)|EDIT(pack)|EDIT(real)|EDIT2|HEXTYPE|GIS_DISTANCE|GIS_DRIVE_ROUTE|GIS_GEOCODE_ADDR|GIS_GEOCODE_ADDR_CITY|GIS_GEOCODE_ADDR_POSTAL|GIS_GEOMETRY|GIS_IN_POLYGON|GIS_LINE|GIS_POINT|GIS_SERVICE_AREA|GIS_SERV_AREA_XY|AYMDI|AYMI|BNYSRC|CHGDATI|DADMYI|DADYMI|DAMDYI|DAMYDI|DATEADDI|DATECVTI|DATEDIFI|DATEMOVI|DAYDMI|DAYMDI|DBLOOKUP|DEXPAVEI|DMYI|DOWKI|DOWKLI|DTDMYI|DTDYMI|DTMDYI|DTMYDI|DTYDMI|DTYMDI|EDAYSI|EURHLD|EURXCH|EXPAVEI|FMLLISTI|GREGDTI|JULDATI|MDYI|MLTREGI|MODFN2|MOVAVEI|REGEXI|REGRESSI|SPLITI|TEXPAVEI|TODAYI|YMDI|YMI|ASCEBC|ASKYN|BAANHASH|CALLDB2|CALPRCNT|CFGQRY|CMEMSG|CMENUM|CURRPATH|DEMOTRAN|DSTBULK|DSTMEM|DSTRUN|DTOG|EBCASC|EDAUT1|EMGPUT|EXTDXD|EXTDXF|EXTDXI|FERRMES|FINDFOC|FUSEMENU|GETLICENSETOKEN|GRECTYPE|GTOD|IBIRCP|JDEAN8|JDECO|JDEMCU|JDEX|JDEX6|JDEY|JDEYPC|JDEZPC|JDE_AN8|JDE_CO|JDE_MCU|JOBNAME|LIEN|LOGOP|MSOINFO|POPEDIT|POPFILE|PTHDAT|RNDSMPSZ|RTCIVP|SESSID|SETAUTH|SHORTMFD|STRTSMPL|TEMPPATH|TSCOMID|USERPATH|WINOPEN|CHECKMD5|CHECKSUM|READLIMIT|CEILING|EXPONENT|FLOOR|MOD|POWER|ADMLEV|CHECKPRIVS|CNCTGRP|CNCTUSR|GEADMIN|GRPLIST|ISADMIN|APINPATH|B64DECODE|DEFERID|FGETENV|FPUTENV|GETFPATH|GETURL|MSOWRIT|ENCRYPT|GETENV|PUTENV)\\b",
+					"match": "\\b(ARGLEN|ASIS|BITSON|BITVAL|BYTVAL|CHKFMT|CTRAN|CTRFLD|EDIT|GETTOK|LCWORD|LCWORD2|LCWORD3|LJUST|LOCASE|OVRLAY|PARAG|POSIT|REVERSE|RJUST|SOUNDEX|SPELLNM|SQUEEZ|STRIP|STRREP|SUBSTR|TRIM|UPCASE|LENV|LOCASV|POSITV|SUBSTV|TRIMV|UPCASV|CHAR_LENGTH|DIGITS|LOWER|LPAD|LTRIM|POSITION|RPAD|RTRIM|SUBSTRING|TOKEN|TRIM_|UPPER|DCTRAN|DEDIT|DSTRIP|DSUBSTR|JPTRANS|CHAR2INT|INT2CHAR|LENGTH|MASK|MNTGETTOK|NLSCHR|SELECTS|STRAN|STRCMP|STRICMP|STRNCMP|TRIMLEN|DB_EXPR|DB_INFILE|DB_LOOKUP|DECODE|FIND|LAST|LOOKUP|DATEADD|DATECVT|DATEDIF|DATEMOV|DATETRAN|DPART|FIYR|FIQTR|FIYYQ|HMASK|TODAY|AYM|AYMD|CHGDAT|DA|DMY|MDY|YMD|DOWK|DOWKL|DT|GREGDT|JULDAT|YM|CVTSTIME|GETSTIME|HADD|HCNVRT|HDATE|HDIFF|HDTTM|HEXTR|HGETC|HHMMSS|HINPUT|HMIDNT|HNAME|HPART|HSETPT|HTIME|HTMTOTS|TIMETOTS|WRTSTIME|DTADD|DTDIFF|DTPART|DTRUNC|Initial_HHMMSS|Initial_TODAY|TODAY2|ADD|DAY|JULIAN|MONTH|QUARTER|SETMDY|SUB|WEEKDAY|YEAR|ATODBL|FPRINT|FTOA|HEXBYT|ITONUM|ITOPACK|ITOZ|PCKOUT|PTOA|TSTOPACK|UFMT|XTPACK|IWC.GetAppCGIValue|IWC.FindAppCGIValue|ABS|BAR|CHKPCK|DMOD|FMOD|IMOD|EXP|EXPN|FMLINFO|FMLLIST|FMLFOR|FMLCAP|INT|LOG|MAX|MIN|MIRR|NORMSDST|NORMSINV|PRDNOR|PRDUNI|RDNORM|RDUNIF|SQRT|XIRR|IWCLink|IWCSwitchToSecure|IWCSwitchToUnsecure|IWCTrigger|CLSDDREC|FEXERR|FINDMEM|GETCOOKI|GETHEADR|GETPDS|GETUSER|MVSDYNAM|PUTCOOKI|PUTDDREC|SLEEP|SPAWN|SYSTEM|SYSVAR|ASQ.|AVE|DST|CNT|CNT|FST|LST|MAX|MDE|MDN|MIN|PCT|PCT|SUM|SUM|PARTITION_AGGR|PARTITION_REF|CHKNUM|LIKE|PATTERN|XMLDECOD|XMLENCOD|KKFCUT|SFTDEL|SFTINS|CONCAT|LAST_NONBLANK|REGEX|REPLACE|SPLIT|PHONETIC|TO_INTEGER|TO_NUMBER|FORECAST|REGRESS|IF|DADMY|DADYM|DAMDY|DAMYD|DAYDM|DAYMD|DTDMY|DTDYM|DTMDY|DTMYD|DTYDM|DTYMD|HGETZ|HHMS|HYYWD|DT_CURRENT_DATE|DT_CURRENT_DATETIME|DT_CURRENT_TIME|CHAR|CTRLCHAR|EDIT(char)|EDIT(int)|EDIT(pack)|EDIT(real)|EDIT2|HEXTYPE|GIS_DISTANCE|GIS_DRIVE_ROUTE|GIS_GEOCODE_ADDR|GIS_GEOCODE_ADDR_CITY|GIS_GEOCODE_ADDR_POSTAL|GIS_GEOMETRY|GIS_IN_POLYGON|GIS_LINE|GIS_POINT|GIS_SERVICE_AREA|GIS_SERV_AREA_XY|AYMDI|AYMI|BNYSRC|CHGDATI|DADMYI|DADYMI|DAMDYI|DAMYDI|DATEADDI|DATECVTI|DATEDIFI|DATEMOVI|DAYDMI|DAYMDI|DBLOOKUP|DEXPAVEI|DMYI|DOWKI|DOWKLI|DTDMYI|DTDYMI|DTMDYI|DTMYDI|DTYDMI|DTYMDI|EDAYSI|EURHLD|EURXCH|EXPAVEI|FMLLISTI|GREGDTI|JULDATI|MDYI|MLTREGI|MODFN2|MOVAVEI|REGEXI|REGRESSI|SPLITI|TEXPAVEI|TODAYI|YMDI|YMI|ASCEBC|ASKYN|BAANHASH|CALLDB2|CALPRCNT|CFGQRY|CMEMSG|CMENUM|CURRPATH|DEMOTRAN|DSTBULK|DSTMEM|DSTRUN|DTOG|EBCASC|EDAUT1|EMGPUT|EXTDXD|EXTDXF|EXTDXI|FERRMES|FINDFOC|FUSEMENU|GETLICENSETOKEN|GRECTYPE|GTOD|IBIRCP|JDEAN8|JDECO|JDEMCU|JDEX|JDEX6|JDEY|JDEYPC|JDEZPC|JDE_AN8|JDE_CO|JDE_MCU|JOBNAME|LIEN|LOGOP|MSOINFO|POPEDIT|POPFILE|PTHDAT|RNDSMPSZ|RTCIVP|SESSID|SETAUTH|SHORTMFD|STRTSMPL|TEMPPATH|TSCOMID|USERPATH|WINOPEN|CHECKMD5|CHECKSUM|READLIMIT|CEILING|EXPONENT|FLOOR|MOD|POWER|ADMLEV|CHECKPRIVS|CNCTGRP|CNCTUSR|GEADMIN|GRPLIST|ISADMIN|APINPATH|B64DECODE|DEFERID|FGETENV|FPUTENV|GETFPATH|GETURL|MSOWRIT|ENCRYPT|GETENV|PUTENV)\\b",
 					"name": "support.function.expression.focexec"
 				},
 				{
-					"match":"\\b(TRUNCATE|RGB)\\b",
+					"match": "\\b(TRUNCATE|RGB)\\b",
 					"name": "support.function.expression.focexec"
 				}
 			]
@@ -240,13 +247,13 @@
 		"properties": {
 			"patterns": [
 				{
-					"begin":"^[\\s\\t\\n]*(SET)\\b",
+					"begin": "^[\\s\\t\\n]*(SET)\\b",
 					"beginCaptures": {
 						"0": {
 							"name": "keyword.other.define.focexec"
 						}
 					},
-					"end":"$",
+					"end": "$",
 					"patterns": [
 						{
 							"name": "meta.property-name.focexec",
@@ -274,13 +281,13 @@
 		"engines": {
 			"patterns": [
 				{
-					"begin":"^[\\s\\t\\n]*(ENGINE)\\b",
+					"begin": "^[\\s\\t\\n]*(ENGINE)\\b",
 					"beginCaptures": {
 						"0": {
 							"name": "keyword.other.define.focexec"
 						}
 					},
-					"end":"$",
+					"end": "$",
 					"patterns": [
 						{
 							"include": "#property-names"
@@ -296,7 +303,7 @@
 							"include": "#strings"
 						},
 						{
-							"include":"#numbers"
+							"include": "#numbers"
 						}
 					]
 				}
@@ -309,11 +316,11 @@
 					"name": "support.type.property-name.focexec"
 				},
 				{
-					"match":"\\b(EMBEDHEADING|3D|AUTOTICK|BARNUMB|BSTACK|GRAPHEDIT|GRAPHSERVURL|HAUTO|HAXIS|HCLASS|HISTOGRAM|HMAX|HMIN|HSTACK|HTICK|LOOKGRAPH|PIE|VAUTO|VAXIS|VCLASS|VGRID|VMAX|VMIN|VTICK|VZERO|GRAPHSTYLE)\\b",
+					"match": "\\b(EMBEDHEADING|3D|AUTOTICK|BARNUMB|BSTACK|GRAPHEDIT|GRAPHSERVURL|HAUTO|HAXIS|HCLASS|HISTOGRAM|HMAX|HMIN|HSTACK|HTICK|LOOKGRAPH|PIE|VAUTO|VAXIS|VCLASS|VGRID|VMAX|VMIN|VTICK|VZERO|GRAPHSTYLE)\\b",
 					"name": "support.type.property-name.focexec"
 				},
 				{	
-					"match":"\\b(TITLELINE|SUMMARIZE|SUBTOTAL|ROW-TOTAL)\\b",
+					"match": "\\b(TITLELINE|SUMMARIZE|SUBTOTAL|ROW-TOTAL)\\b",
 					"name": "support.type.property-name.focexec"
 				},
 				{
@@ -333,7 +340,7 @@
 		"property-values": {
 			"patterns" : [
 				{
-					"match": "\\b(PRINTONLY|MIXED|FOCUS|SIMPLE|ON|OFF|MFACT|NOPAGE|NORMAL|HIDEONE|NEW|ADVANCED|TABBED|END|REJECT|CODEPAGE|RECORDLIMIT|AUTO|XSBEG|NATV|FULL|BACKWARD|FORWARD|LST|UNKNOWN|TODAY|INCHES|_blank|RAW|IEEE|IBM3270|ONLINE|DENSE|IMMEDIATE|RETURN|LEFT|UNDO|RIGHT|SORT|CURRENT|Letter|DEFAULT|STARTUP|HOST|XML|CANCEL|HX|WILDCARD|AMENGLISH|LOWER|HTML|ASCII|BINARY|OLD|EDA|WINNT|COMPOUND|STANDARD|DHTML|PORTRAIT)\\b",
+					"match": "\\b(PRINTONLY|MIXED|FOCUS|SIMPLE|ON|OFF|MFACT|NOPAGE|NOLEAD|NOEVAL|TOP|NORMAL|HIDEONE|NEW|ADVANCED|TABBED|END|REJECT|CODEPAGE|RECORDLIMIT|AUTO|XSBEG|NATV|FULL|BACKWARD|FORWARD|LST|UNKNOWN|TODAY|INCHES|_blank|RAW|IEEE|IBM3270|ONLINE|DENSE|IMMEDIATE|RETURN|LEFT|UNDO|RIGHT|SORT|CURRENT|Letter|DEFAULT|STARTUP|HOST|XML|CANCEL|HX|WILDCARD|AMENGLISH|LOWER|HTML|ASCII|BINARY|OLD|EDA|WINNT|COMPOUND|STANDARD|DHTML|PORTRAIT)\\b",
 					"name": "support.constant.property-value.focexec"
 				},
 				{
@@ -341,14 +348,14 @@
 					"name": "support.constant.property-value.focexec"
 				},
 				{
-					"match":"\\b(HTML|HTMTABLE|DHTML|ALPHA|DOC|PDF|WP|PS|Text|DIF|PPT|PPTX|EXL97|EXCEL|EXL2K|PIVOT|FORMAT|XLSX|DFIX|LOTUS|WK1|SYLK|COMMA|COM|COMT|TAB|TABT|XML|JSCHART|AHTML|FLEX|APDF|VISDIS)\\b",
+					"match": "\\b(HTML|HTMTABLE|DHTML|ALPHA|DOC|PDF|WP|PS|Text|DIF|PPT|PPTX|EXL97|EXCEL|EXL2K|PIVOT|FORMAT|XLSX|DFIX|LOTUS|WK1|SYLK|COMMA|COM|COMT|TAB|TABT|XML|JSCHART|AHTML|FLEX|APDF|VISDIS)\\b",
 					"name": "support.constant.property-value.focexec"
 				},
 				{
-					"include":"#adapters"
+					"include": "#adapters"
 				},
 				{
-					"match":"\\b(JSCHART|FUSION|JSFUSION|FIN|PRIVATE|COMMAND|COMMIT|DEFAULT|RU|RC|RR|SE|CH|CS|LINE|VLINE|VLINE2|HLINE|HLINE2|VBAR|3D_BAR|PIE|SCATTER|VAREA|3DAREAS|BOXPLOT|BUBBLE|FUNNEL|GAUGE1|VHISTOGR|MEKKO|PARABOX|PARETO|POLAR|RADARL|STREAM|3DSURFCE|TAGCLOUD|TREEMAP|VWATERFL|CUSTOM)\\b",
+					"match": "\\b(JSCHART|FUSION|JSFUSION|FIN|PRIVATE|COMMAND|COMMIT|DEFAULT|RU|RC|RR|SE|CH|CS|LINE|VLINE|VLINE2|HLINE|HLINE2|VBAR|3D_BAR|PIE|SCATTER|VAREA|3DAREAS|BOXPLOT|BUBBLE|FUNNEL|GAUGE1|VHISTOGR|MEKKO|PARABOX|PARETO|POLAR|RADARL|STREAM|3DSURFCE|TAGCLOUD|TREEMAP|VWATERFL|CUSTOM)\\b",
 					"name": "support.constant.property-value.focexec"
 				}
 			]
@@ -360,19 +367,19 @@
 					"name": "keyword.control.define.focexec"
 				},
 				{
-					"match":"\\b(R|I|H|ON|OFF|NO|VARIABLE|U|KU|KM|KL|DKU|DKM|KLU|INNER|LEFT_OUTER)\\b",					
-					"name":"keyword.control.define.focexec"
+					"match": "\\b(R|I|H|ON|OFF|NO|VARIABLE|U|KU|KM|KL|DKU|DKM|KLU|INNER|LEFT_OUTER)\\b",					
+					"name": "keyword.control.define.focexec"
 				}
 			]
 		},
 		"reporting": {
 			"patterns":[
 				{
-					"match":"\\b(TABLE|MATCH|GRAPH|DEFINE|FILE|END|ENDSTYLE|COMPUTE|GRAPH_SCRIPT|GRAPH_JS|FILEDEF|DISK|USE|RECAP)\\b",
+					"match": "\\b(TABLE|MATCH|GRAPH|DEFINE|FILE|END|ENDSTYLE|COMPUTE|GRAPH_SCRIPT|GRAPH_JS|FILEDEF|DISK|USE|RECAP)\\b",
 					"name": "keyword.other.define.focexec"
 				},
 				{
-					"match":"\\b(SQL|FROM|PREPARE|FOR|EXECUTE|EXEC|SELECT|JOIN|CASE|DISTINCT|CREATE|INSERT|UPDATE|DELETE|TRUNCATE|VIEW|UNION|ALL|INTERSECT|EXCEPT|LIKE|NULL|COALESCE|NULLIF|IFNULL|ORDER|BY|GROUP|CREATE|DROP|VIEW)\\b",
+					"match": "\\b(SQL|FROM|PREPARE|FOR|EXECUTE|EXEC|SELECT|JOIN|CASE|DISTINCT|CREATE|INSERT|UPDATE|DELETE|TRUNCATE|VIEW|UNION|ALL|INTERSECT|EXCEPT|LIKE|NULL|COALESCE|NULLIF|IFNULL|ORDER|BY|GROUP|CREATE|DROP|VIEW)\\b",
 					"name": "keyword.other.define.focexec"
 				},
 				{
@@ -396,20 +403,20 @@
 					"name": "support.type.property-name.focexec"
 				},
 				{
-					"begin":"^[\\s\\t\\n]*(ON|AFTER)\\b",
+					"begin": "^[\\s\\t\\n]*(ON|AFTER)\\b",
 					"beginCaptures": {
 						"0": {
 							"name": "keyword.other.define.focexec"
 						}
 					},
-					"end":"$",
+					"end": "$",
 					"patterns":[
 						{
-							"match":"\\b(TABLE|MATCH|GRAPH)\\b",
+							"match": "\\b(TABLE|MATCH|GRAPH)\\b",
 							"name": "keyword.other.define.focexec"
 						},
 						{
-							"match":"\\b(SET|SAVE|PCHOLD|HOLD|SAVB|SUBFOOT|SUBHEAD|FOOTER)\\b",
+							"match": "\\b(SET|SAVE|PCHOLD|HOLD|SAVB|SUBFOOT|SUBHEAD|FOOTER)\\b",
 							"name": "keyword.other.define.focexec"
 						},
 						{
@@ -427,13 +434,17 @@
 				{
 					"match": "((^-\\*).*$)",
 					"name": "comment.line.focexec"
+				},
+				{
+					"match": "\\$.*$",
+					"name": "support.class.focexec"
 				}
 			]
 		},
 		"numbers": {
 			"patterns": [
 				{
-					"match":"\\b([0-9]{1,})\\b",
+					"match": "\\b([0-9]{1,})\\b",
 					"name": "constant.numeric.focexec"
 				}
 			]
