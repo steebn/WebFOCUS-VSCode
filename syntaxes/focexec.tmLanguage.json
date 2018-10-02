@@ -432,12 +432,12 @@
 		"comments": {
 			"patterns": [
 				{
-					"match": "((^-\\*).*$)",
+					"match": "((-\\*).*$)",
 					"name": "comment.line.focexec"
 				},
 				{
-					"match": "\\$.*$",
-					"name": "support.class.focexec"
+					"match": "((\\$).*$)",
+					"name": "comment.line.focexec"
 				}
 			]
 		},

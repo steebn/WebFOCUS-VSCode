@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.2 - 0.4.3
+
+- Comment Bug fixes
+
 ### 0.4.1
 
 - Dependencies update
