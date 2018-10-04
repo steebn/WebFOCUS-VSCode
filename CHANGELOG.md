@@ -1,6 +1,12 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.4
+
+- Added in keybindings for quick transform to upper/lower case
+    - ctrl+alt+u = UPPERCASE
+    - ctrl+alt+l = lowercase
+
 ### 0.4.2 - 0.4.3
 
 - Comment Bug fixes
