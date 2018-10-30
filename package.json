@@ -127,7 +127,25 @@
                 "key": "ctrl+alt+l",
                 "command": "editor.action.transformToLowercase"
             }
-        ]
+        ],
+        "configurationDefaults": {
+            "[focexec]": {
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
+                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+            },
+            "[master]": {
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
+                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+            },
+            "[access]": {
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
+                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+            },
+            "[stylesheet]": {
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
+                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+            }
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",

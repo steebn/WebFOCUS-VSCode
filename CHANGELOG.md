@@ -1,6 +1,14 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.5
+
+- Added in configuration defaults to remove the ampersand special character from:
+    - editor.wordSeparator
+        - This will highlight the entire variable, including the '&' when double clicking on it
+    - editor.wordWrapBreakAfterCharacters
+        - This not leave the amper on online while the varaiable name is on the next line up when word wrap is on.
+
 ### 0.4.4
 
 - Added in keybindings for quick transform to upper/lower case
