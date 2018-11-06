@@ -1985,9 +1985,9 @@
 		"scope": "focexec",
 		"prefix": "wff",
 		"body": [
-			"FTOA(${1:number})"
+			"FTOA(${1:number}, '(${2:format})', '${3:output}')"
 		],
-		"description": "Converts a number to alpha format"
+		"description": "The FTOA function converts a number up to 16 digits long from numeric format to alphanumeric format. It retains the decimal positions of the number and right-justifies it with leading spaces. You can also add edit options to a number converted by FTOA. When converting a number containing decimals to a character string, you must specify an alphanumeric format large enough to accommodate both the integer and decimal portions of the number. For example, a D12.2 format is converted to A14. If the output format is not large enough, decimals are truncated."
 	},
 	"FUSEMENU": {
 		"scope": "focexec",
@@ -2425,7 +2425,7 @@
 		"scope": "focexec",
 		"prefix": "wff",
 		"body": [
-			"ITONUM(${1:maxbytes}, ${2:infield}, ${3:output_format})"
+			"ITONUM(${1:maxbytes}, ${2:infield}, '${3:output_format}')"
 		],
 		"description": "Converts a large number from integer to double-precision format"
 	},
@@ -2433,7 +2433,7 @@
 		"scope": "focexec",
 		"prefix": "wff",
 		"body": [
-			"ITOPACK(${1:maxbytes}, ${2:infield}, ${3:output_format})"
+			"ITOPACK(${1:maxbytes}, ${2:infield}, '${3:output_format}')"
 		],
 		"description": "Converts a large binary integer to packed-decimal format"
 	},
@@ -3009,9 +3009,9 @@
 		"scope": "focexec",
 		"prefix": "wff",
 		"body": [
-			"PTOA(${1:number})"
+			"PTOA(${1:number}, '(${2:format})', '${3:output}')"
 		],
-		"description": "Converts a number to alpha format"
+		"description": "The PTOA function converts a number from numeric format to alphanumeric format. It retains the decimal positions of the number and right-justifies it with leading spaces. You can also add edit options to a number converted by PTOA."
 	},
 	"PUTCOOKI": {
 		"scope": "focexec",

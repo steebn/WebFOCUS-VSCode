@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to the "webfocus" extension.
 
+### 0.4.6
+
+- Fix for the FTOA and PTOA function snippets. They were missing 2 of the required parameters
+
 ### 0.4.5
 
 - Added in configuration defaults to remove the ampersand special character from:
