@@ -478,40 +478,48 @@
 			"$0"
 		],
 		"description": "(.tab, .tsv, .txt) Scheduled output opens in tab-delimited format. For TABT, the format includes column headings in the first row. This format is required by certain software packages, such as Microsoft Access. Suggested Uses: Email, Report Library."
-	},
+    },
+    
+
 	"SET CENT-ZERO": {
 		"scope": "focexec",
 		"prefix": "SET",
 		"body": [
-			"SET CENT-ZERO = ${1|ON,OFF|}",
-			"$0"
+			"SET CENT-ZERO = ${1|ON,OFF|}"
 		],
 		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
-	},
-	"SET PAGE-NUM": {
-		"scope": "focexec",
-		"prefix": "SET",
-		"body": [
-			"SET PAGE-NUM = ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}",
-			"$0"
-		],
-		"description": "Controls the numbering of output pages."
 	},
 	"SET HOLDLIST": {
 		"scope": "focexec",
 		"prefix": "SET",
 		"body": [
-			"SET HOLDLIST = ${1|ALL,ALLKEYS,PRINTONLY,EXPLICIT|}",
-			"$0"
+			"SET HOLDLIST = ${1|ALL,ALLKEYS,PRINTONLY,NOFOCLIST,EXPLICIT|}"
+		],
+		"description": "Determines what fields in a report request are included in the HOLD file."
+    },
+	"SET PAGE-NUM": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": [
+			"SET PAGE-NUM = ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}"
 		],
 		"description": "Controls the numbering of output pages."
 	},
+	"SET SHORTPATH": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": [
+			"SET SHORTPATH = ${1|SQL,FOCUS|}"
+		],
+		"description": "Control Short Path Processing In a Left Outer Join"
+	},
+    
+
 	"ACROSSLINE": {
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET ACROSSLINE ${1|ON,OFF,SKIP|}",
-			"$0"
 		],
 		"description": "Controls underlining of column titles on report output."
 	},
@@ -520,7 +528,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET ASNAMES ${1|FOCUS,ON,OFF,MIXED,FLIP,SUBST|}",
-			"$0"
 		],
 		"description": "Controls the FIELDNAME attribute in a HOLD Master File."
 	},
@@ -529,7 +536,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET BYDISPLAY ${1|OFF,ON,BY,ACROSS,ALL|}",
-			"$0"
 		],
 		"description": "Controls Displaying All Vertical (BY) Sort Field Values."
 	},
@@ -538,7 +544,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET CENT-ZERO ${1|ON,OFF|}",
-			"$0"
 		],
 		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
 	},
@@ -547,7 +552,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET DROPBLNKLINE ${1|OFF,ON,BODY,HEADING,ALL|}",
-			"$0"
 		],
 		"description": "Eliminates blank lines from the report output."
 	},
@@ -556,7 +560,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET HOLDATTRS ${1|FOCUS,CUBE,CUBE_STRUCTURED,OFF,ON|}",
-			"$0"
 		],
 		"description": "Determines the default format for HOLD files."
 	},
@@ -565,7 +568,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET HOLDFORMAT ${1|BINARY,ALPHA,DATREC,SQL_SCRIPT|}",
-			"$0"
 		],
 		"description": "Determines the default format for HOLD files."
 	},
@@ -573,8 +575,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET HOLDLIST ${1|ALL,ALLKEYS,EXPLICIT,NOFOCLIST,OLD,PRINTONLY|}",
-			"$0"
+			"ON TABLE SET HOLDLIST ${1|ALL,ALLKEYS,PRINTONLY,NOFOCLIST,EXPLICIT|}",
 		],
 		"description": "Determines the default format for HOLD files."
 	},
@@ -583,7 +584,6 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET NODATA '${1:.}'",
-			"$0"
 		],
 		"description": "Character string display to indicate missing data in a report."
 	},
@@ -592,9 +592,16 @@
 		"prefix": "ots",
 		"body": [
 			"ON TABLE SET PAGE-NUM ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}",
-			"$0"
 		],
 		"description": "Controls the numbering of output pages."
+	},
+	"SHORTPATH": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": [
+			"ON TABLE SET SHORTPATH ${1|SQL,FOCUS|}"
+		],
+		"description": "Control Short Path Processing In a Left Outer Join - FOCUS: Omits a host segment from the report output when it has no corresponding cross-referenced segment and the report has a screening condition on the cross-referenced segment. SQL: Supplies missing values for the fields in a missing cross-referenced segment in an outer join. Applies screening conditions against this record and retains the record on the report output if it passes the screening test. Note: There must be an outer join in effect, either as a result of the SET ALL=ON command or a JOIN LEFT_OUTER command (either inside or outside of the Master File)."
 	},
 	"STYLE": {
 		"scope": "focexec",

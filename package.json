@@ -156,7 +156,7 @@
         "@types/node": "^8.10.30",
         "eslint": "^4.11.0",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.21"
+        "vscode": "^1.1.22"
     },
     "dependencies": {
         "npm": "^6.4.1"
