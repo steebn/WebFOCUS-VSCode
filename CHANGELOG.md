@@ -1,5 +1,8 @@
 # Change Log
-All notable changes to the "webfocus" extension.
+All notable changes to the "webfocus" extension. 
+### 0.4.7
+
+- 'event-stream' security vulnerability patch. More info here: [https://code.visualstudio.com/blogs/2018/11/26/event-stream](https://code.visualstudio.com/blogs/2018/11/26/event-stream)
 
 ### 0.4.6
 
