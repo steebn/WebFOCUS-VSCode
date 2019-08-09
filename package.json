@@ -130,20 +130,16 @@
         ],
         "configurationDefaults": {
             "[focexec]": {
-                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
-                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?"
             },
             "[master]": {
-                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
-                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?"
             },
             "[access]": {
-                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
-                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?"
             },
             "[stylesheet]": {
-                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?",
-                "editor.wordWrapBreakAfterCharacters": " \t})]?|,;¢°′″‰℃、。｡､￠，．：；？！％・･ゝゞヽヾーァィゥェォッャュョヮヵヶぁぃぅぇぉっゃゅょゎゕゖㇰㇱㇲㇳㇴㇵㇶㇷㇸㇹㇺㇻㇼㇽㇾㇿ々〻ｧｨｩｪｫｬｭｮｯｰ”〉》」』】〕）］｝｣"
+                "editor.wordSeparators": "`~!@#%^*()-=+[{]}\\|;:'\",.<>/?"
             }
         }
     },
@@ -156,7 +152,7 @@
         "@types/node": "^8.10.30",
         "eslint": "^4.11.0",
         "typescript": "^2.6.1",
-        "vscode": "^1.1.22"
+        "vscode": "^1.1.36"
     },
     "dependencies": {
         "npm": "^6.4.1"
