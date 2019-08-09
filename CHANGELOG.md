@@ -1,8 +1,8 @@
 # Change Log
 All notable changes to the "webfocus" extension.
-### 0.4.8
+### 0.5.1
 
-- Security patch.
+- Security patches.
 
 ### 0.4.7
 
