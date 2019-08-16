@@ -58,7 +58,7 @@
 		"scope": "focexec",
 		"prefix": "SUM",
 		"body": [
-			"SUM ${1:field} $0"
+			"SUM ${1:field} $0" 
 		],
 		"description": "The SUM command sums the values of a numeric field."
 	},
