@@ -489,6 +489,14 @@
 		],
 		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
 	},
+	"SET CSSURL": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": [
+			"SET CSSURL = '${1}'"
+		],
+		"description": "Controls generating an Internal Cascading Style Sheet."
+	},
 	"SET HOLDLIST": {
 		"scope": "focexec",
 		"prefix": "SET",
@@ -496,7 +504,15 @@
 			"SET HOLDLIST = ${1|ALL,ALLKEYS,PRINTONLY,NOFOCLIST,EXPLICIT|}"
 		],
 		"description": "Determines what fields in a report request are included in the HOLD file."
-    },
+	},
+	"SET HTMLCSS": {
+		"scope": "focexec",
+		"prefix": "SET",
+		"body": [
+			"SET HTMLCSS = ${1|OFF,ON|}"
+		],
+		"description": "Controls generating an Internal Cascading Style Sheet."
+	},
 	"SET PAGE-NUM": {
 		"scope": "focexec",
 		"prefix": "SET",
@@ -519,7 +535,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET ACROSSLINE ${1|ON,OFF,SKIP|}",
+			"ON TABLE SET ACROSSLINE ${1|ON,OFF,SKIP|}"
 		],
 		"description": "Controls underlining of column titles on report output."
 	},
@@ -527,7 +543,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET ASNAMES ${1|FOCUS,ON,OFF,MIXED,FLIP,SUBST|}",
+			"ON TABLE SET ASNAMES ${1|FOCUS,ON,OFF,MIXED,FLIP,SUBST|}"
 		],
 		"description": "Controls the FIELDNAME attribute in a HOLD Master File."
 	},
@@ -535,7 +551,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET BYDISPLAY ${1|OFF,ON,BY,ACROSS,ALL|}",
+			"ON TABLE SET BYDISPLAY ${1|OFF,ON,BY,ACROSS,ALL|}"
 		],
 		"description": "Controls Displaying All Vertical (BY) Sort Field Values."
 	},
@@ -543,15 +559,23 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET CENT-ZERO ${1|ON,OFF|}",
+			"ON TABLE SET CENT-ZERO ${1|ON,OFF|}"
 		],
 		"description": "The CENT-ZERO parameter displays a leading zero in decimal-only numbers."
+	},
+	"CSSURL": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": [
+			"SET CSSURL '${1}'"
+		],
+		"description": "Controls generating an Internal Cascading Style Sheet."
 	},
 	"DROPBLNKLINE": {
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET DROPBLNKLINE ${1|OFF,ON,BODY,HEADING,ALL|}",
+			"ON TABLE SET DROPBLNKLINE ${1|OFF,ON,BODY,HEADING,ALL|}"
 		],
 		"description": "Eliminates blank lines from the report output."
 	},
@@ -559,7 +583,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET HOLDATTRS ${1|FOCUS,CUBE,CUBE_STRUCTURED,OFF,ON|}",
+			"ON TABLE SET HOLDATTRS ${1|FOCUS,CUBE,CUBE_STRUCTURED,OFF,ON|}"
 		],
 		"description": "Determines the default format for HOLD files."
 	},
@@ -567,7 +591,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET HOLDFORMAT ${1|BINARY,ALPHA,DATREC,SQL_SCRIPT|}",
+			"ON TABLE SET HOLDFORMAT ${1|BINARY,ALPHA,DATREC,SQL_SCRIPT|}"
 		],
 		"description": "Determines the default format for HOLD files."
 	},
@@ -575,15 +599,23 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET HOLDLIST ${1|ALL,ALLKEYS,PRINTONLY,NOFOCLIST,EXPLICIT|}",
+			"ON TABLE SET HOLDLIST ${1|ALL,ALLKEYS,PRINTONLY,NOFOCLIST,EXPLICIT|}"
 		],
 		"description": "Determines the default format for HOLD files."
+	},
+	"HTMLCSS": {
+		"scope": "focexec",
+		"prefix": "ots",
+		"body": [
+			"ON TABLE SET HTMLCSS ${1|OFF,ON|}"
+		],
+		"description": "Controls generating an Internal Cascading Style Sheet."
 	},
 	"NODATA": {
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET NODATA '${1:.}'",
+			"ON TABLE SET NODATA '${1:.}'"
 		],
 		"description": "Character string display to indicate missing data in a report."
 	},
@@ -591,7 +623,7 @@
 		"scope": "focexec",
 		"prefix": "ots",
 		"body": [
-			"ON TABLE SET PAGE-NUM ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}",
+			"ON TABLE SET PAGE-NUM ${1|ON,OFF,NOPAGE,TOP,NOLEAD|}"
 		],
 		"description": "Controls the numbering of output pages."
 	},
