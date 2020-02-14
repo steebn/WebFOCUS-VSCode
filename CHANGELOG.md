@@ -1,6 +1,6 @@
 # Change Log
 All notable changes to the "webfocus" extension.
-### 0.6.0 - 0.6.1
+### 0.6.0 - 0.6.2
 
 - Updated snippets
     - Better readability and descriptions in the snippet window.
