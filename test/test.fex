@@ -27,6 +27,8 @@
 </html>
 -HTMLFORM END
 
+ON TABLE PCHOLD AS filename FORMAT AHTML
+
 -********************************************************************************
 -* Styling: Style attributes
 -********************************************************************************
@@ -39,10 +41,11 @@ TYPE=REPORT, GRID=OFF, LINES-PER-PAGE=UNLIMITED, $
 TYPE=DATA, COLUMN=COUNTRY, FONT=ARIAL, $
 ENDSTYLE
 END
+
 -********************************************************************************
 -* Styling: SET Commands
 -********************************************************************************
-SET ASNAMES     =       OFF 
+SET ASNAMES=OFF 
 SET BYDISPLAY=ON
 SET PAGE-NUM=NOPAGE
 
@@ -65,7 +68,6 @@ ENGINE SQLMSS SET CONNECTION_ATTRIBUTES CON2
 &VERBOSEWHENCE.EVAL &CMAPP/&TABLE MASTER
 &VERBOSEWHENCE.EVAL &CMAPP/&TABLE FOCUS
 
-
 -********************************************************************************
 -* Styling: Dialogue Manager Commands
 -********************************************************************************
@@ -82,7 +84,6 @@ ENGINE SQLMSS SET CONNECTION_ATTRIBUTES CON2
 -INCLUDE DUMMYFILE
 &SKIPINCL.EVAL-INCLUDE DUMMYFILE2
 
-
 -********************************************************************************
 -* Styling: TABLE Data and Formatting
 -********************************************************************************
@@ -96,7 +97,6 @@ ENDSTYLE
 ON TABLE PCHOLD FORMAT PDF
 END
 -RUN
-
 
 -********************************************************************************
 -* Stying: GRAPH Commands
@@ -145,4 +145,3 @@ END
 -********************************************************************************
 
 'Esse consequat fugiat deserunt id esse do officia est in est. Dolore ullamco velit ex id deserunt anim aliquip duis ullamco anim. Cillum sint laborum magna aliqua ea dolor veniam laboris tempor adipisicing cillum elit amet irure. Veniam adipisicing non do voluptate aute exercitation dolore aliquip Lorem deserunt esse duis cupidatat. Nulla cupidatat ea aliquip ex aute exercitation quis. Qui et consequat aute esse Lorem eiusmod officia eiusmod commodo ad ea consectetur. Enim nostrud do est deserunt et elit irure consequat velit duis esse anim.' &TESTVARIABLE
-

@@ -1,5 +1,20 @@
 # Change Log
 All notable changes to the "webfocus" extension.
+### 0.6.0
+
+- Updated snippets
+    - Better readability and descriptions in the snippet window.
+    - [Query Command](https://webfocusinfocenter.informationbuilders.com/wfappent/TLs/TL_lang/source/testing66.htm) Snippets
+        - Additional query commands
+        - Type `wf?` in the editor to access all available snippets
+    - `SET` and `ON TABLE SET` Snippets
+        - Added more snippets
+        - Combined them into the same snippet with a selection to choose which one to use.
+        - Type `SET` to access all available snippets
+    - Functions
+        - Fixed readability in snippet popup
+        - Removed dummy functions
+
 ### 0.5.1 - 0.5.4
 
 - Security patches.
