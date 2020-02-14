@@ -16,9 +16,9 @@ This extension for Visual Studio Code brings support for WebFOCUS files (.fex, .
 
     ![Function snippet](images/Functions.gif)
 
-    - **ON TABLE SET:** Type '**ots**' (On Table Set) *(currently a limited list)*
+    <!-- - **ON TABLE SET:** Type '**ots**' (On Table Set) *(currently a limited list)*
 
-    ![ON TABLE SET snippet](images/OnTableSet.gif)   
+    ![ON TABLE SET snippet](images/OnTableSet.gif)    -->
 
     - **Output Formats:** Type '**fmt**' (format)
 
@@ -63,3 +63,4 @@ Please use the [Issues tab](https://github.com/steebn/WebFOCUS-VSCode/issues) to
 Releases Notes can be found in the [changelog](https://github.com/steebn/WebFOCUS-VSCode/blob/master/CHANGELOG.md).
  
 ----------
+1
