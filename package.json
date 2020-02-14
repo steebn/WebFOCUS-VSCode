@@ -2,7 +2,7 @@
     "name": "webfocus",
     "displayName": "WebFOCUS",
     "description": "Provides language support for WebFOCUS",
-    "version": "0.6.0",
+    "version": "0.6.1",
     "preview": true,
     "publisher": "steebn",
     "author": {
